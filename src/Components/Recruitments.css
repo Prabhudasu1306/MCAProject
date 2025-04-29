@@ -1,0 +1,62 @@
+.recruitments-container {
+  max-width: 960px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.recruitments-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.recruitments-container h3 {
+  color: #1e90ff;
+  font-size: 22px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.recruitments-container p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.recruitments-container ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.recruitments-container ul li {
+  background-color: #f4f8fc;
+  border-left: 4px solid #1e90ff;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .recruitments-container {
+    padding: 20px;
+  }
+
+  .recruitments-container h2 {
+    font-size: 24px;
+  }
+
+  .recruitments-container h3 {
+    font-size: 20px;
+  }
+
+  .recruitments-container ul li {
+    font-size: 14px;
+  }
+}

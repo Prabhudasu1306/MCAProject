@@ -1,0 +1,39 @@
+.core-values-container {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  .core-values-title {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+  
+  .core-values-image {
+    display: block;
+    margin: 0 auto 30px auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .core-values-content {
+    margin-top: 20px;
+    line-height: 1.8;
+    color: #34495e;
+  }
+  
+  .core-values-subtitle {
+    color: #16a085;
+    margin-top: 20px;
+    font-size: 22px;
+  }
+  
+  .core-values-paragraph {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  

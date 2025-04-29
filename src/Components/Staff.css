@@ -1,0 +1,77 @@
+.staff-container {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.staff-title {
+  text-align: center;
+  color: black;
+}
+
+.staff-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.staff-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.staff-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.staff-field label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.staff-field input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.staff-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 100px;
+  margin-top: 20px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.clear-button {
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.clear-button:hover {
+  background-color: darkred;
+}

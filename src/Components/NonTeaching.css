@@ -1,0 +1,84 @@
+.non-teaching-container {
+  margin: 40px auto 0 auto; /* Adds top gap of 40px */
+  padding: 20px;
+  max-width: 900px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.non-teaching-heading {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.non-teaching-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  margin: 20px 0; /* Adds vertical spacing (top and bottom) */
+}
+
+.non-teaching-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.non-teaching-label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.non-teaching-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.non-teaching-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.non-teaching-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.non-teaching-button,
+.non-teaching-clear-button {
+  width: 15%;              
+  padding: 8px 10px;        
+  font-size: 14px; 
+  gap: 5px;         
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.non-teaching-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.non-teaching-button:hover {
+  background-color: #0056b3;
+}
+
+.non-teaching-clear-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.non-teaching-clear-button:hover {
+  background-color: #d32f2f;
+}

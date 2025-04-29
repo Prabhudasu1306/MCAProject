@@ -1,0 +1,32 @@
+.footer {
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    margin-top: 20px;
+  }
+  
+  .footer .social-links a {
+    margin: 0 10px;
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  .footer .quick-links ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .footer .quick-links li {
+    margin: 10px 0;
+  }
+  
+  .footer .quick-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer .footer-text {
+    text-align: center;
+    margin-top: 20px;
+  }
+  

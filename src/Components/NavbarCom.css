@@ -1,0 +1,102 @@
+.custom-navbar {
+    background-color: violet !important; 
+    color: black; 
+}
+
+.custom-navbar .navbar-dark .navbar-nav .nav-link {
+    color: red; 
+    font-weight: bold; 
+}
+
+.custom-navbar .nav-link svg {
+    color: red; 
+    font-size: 24px; 
+}
+
+body {
+    margin: 0;
+    background-color: white; 
+    color: black; 
+}
+
+.main-content {
+    background-color: white;
+    color: black; 
+    min-height: 100vh; 
+    padding: 20px; 
+}
+
+.custom-navbar {
+    background-color: violet; 
+    color: white;
+  }
+  
+
+  .social-links .nav-link {
+    padding: 0 10px;
+  }
+  
+  .social-links .nav-link:hover {
+    color: white; 
+  }
+  
+ 
+  .navbar-nav .nav-link {
+    color: white !important;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: yellow !important;
+  }
+
+  .content-area {
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+
+
+
+  .custom-navbar .navbar-nav .nav-link {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .custom-navbar .navbar-nav .nav-link:hover {
+    color: orange;
+  }
+  
+ 
+  
+  .social-links .nav-link:hover {
+    color: #007bff;
+  }
+  
+  
+  .second-navbar {
+    background-color: #333;
+    color: white;
+  }
+  
+  .second-navbar .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+  }
+  
+  .second-navbar .navbar-nav .nav-link:hover {
+    color: #ddd;
+  }
+  
+  .about-link {
+    color: #ff9900;
+  }
+  
+  .about-link:hover {
+    color: #ff6600;
+  }
+  
+ 
+  .content-area {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
