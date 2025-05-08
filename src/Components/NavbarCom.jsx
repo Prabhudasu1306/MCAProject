@@ -37,8 +37,15 @@ import Relations from './Relations';
 import Admin from './Admin';
 import Enrollment from './Enrollment';
 import './NavbarCom.css';
-import Hostel from './Hostels';
 import Sports from './Sports';
+import Placement from './Placement';
+import AllPlacementInfo from './AllPlacementInfo';
+import PlacementApplication from './PlacementApplication';
+import AllEnrollemnt from './AllEnrollemnt';
+import UpdateEnrollment from './UpdateEnrollment';
+import Hostels from './Hostels';
+import RegisterHostel from './RegisterHostel';
+import AllHostelsDetails from './AllHostelsDetails';
 
 const NavbarCom = () => {
   const navigate = useNavigate();
@@ -69,13 +76,14 @@ const NavbarCom = () => {
                   <NavDropdown.Item as={Link} to="/admin">Dashboard</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/allstaff">All Staff</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/alldriver">All Drivers</NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/coursesoffered">Courses Offered</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/undergraduate">Course Offered</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/nonteaching">NonTeaching</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/placemntDrive">PlacementDrive</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/allenrollements">AllEnrollments</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/AllHostelsDetails">AllHostelsDetails</NavDropdown.Item>
+                  
                 </NavDropdown>
               )}
-
-              
-
               <NavDropdown title="Institution Info" id="institution-info-dropdown">
                 <NavDropdown.Item as={Link} to="/core-values">Core Values</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/overview">Overview</NavDropdown.Item>
@@ -84,15 +92,16 @@ const NavbarCom = () => {
                 <NavDropdown.Item as={Link} to="/vision">Vision</NavDropdown.Item>
               </NavDropdown>
 
-              <NavDropdown title="Academics" id="academics-dropdown">
-                <NavDropdown.Item as={Link} to="/courses-offered">Courses Offered</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/schools">Colleges</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/library">Library</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/feedback">Feedback</NavDropdown.Item>
-              </NavDropdown>
+              {/* <NavDropdown title="Academics" id="academics-dropdown"> */}
+                {/* <NavDropdown.Item as={Link} to="/courses-offered">Courses Offered</NavDropdown.Item> */}
+                {/* <NavDropdown.Item as={Link} to="/schools">Colleges</NavDropdown.Item> */}
+                {/* <NavDropdown.Item as={Link} to="/library">Library</NavDropdown.Item> */}
+                {/* <NavDropdown.Item as={Link} to="/feedback">Feedback</NavDropdown.Item> */}
+              {/* </NavDropdown> */}
 
               <NavDropdown title="Admission" id="admission-dropdown">
                 <NavDropdown.Item as={Link} to="/undergraduate">Course Offered</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/feedback">Feedback</NavDropdown.Item>
               </NavDropdown>
 
               <NavDropdown title="Placement" id="placement-dropdown">
@@ -114,8 +123,15 @@ const NavbarCom = () => {
               </NavDropdown>
 
               <Nav.Link as={Link} to="/enrollment" className="about-link">Enrollment</Nav.Link>
-            </Nav>
+              <Nav.Link as={Link} to="/allPlacementInfo" className="about-link">PlacementsAll</Nav.Link>
+              <Nav.Link as={Link} to="/Registerhostel" className="Registerhostel-link">Registerhostel</Nav.Link>
+              
 
+              {/* <Nav.Link as={Link} to="/placementApplication" className="about-link">ApplyforDrive</Nav.Link> */}
+              {/* <Nav.Link as={Link} to="/allenrollements" className="allenrollements-link">ALlEnrollments</Nav.Link> */}
+        
+
+            </Nav>
             <Nav className="ms-auto">
               {!userName ? (
                 <>
@@ -156,6 +172,11 @@ const NavbarCom = () => {
               <Route path="/coursesoffered" element={<CoursesOffered />} />
               <Route path="/addcourse" element={<AddCourse />} />
               <Route path="/editstaff/:id" element={<EditStaff />} />
+              <Route path="/placemntDrive" element={<Placement/>}/>
+              <Route path="/allenrollements" element={<AllEnrollemnt/>}/>
+            
+
+
             </>
           )}
 
@@ -169,8 +190,9 @@ const NavbarCom = () => {
           <Route path="sports" element={<Sports/>}/>
           <Route path="/courses-offered" element={<CoursesOffered />} />
           <Route path="/culturals" element={< Culturals/>} />
-          <Route path="hostel-facility" element={<Hostel/>} />
+          <Route path="hostel-facility" element={<Hostels/>} />
           <Route path="/library" element={<Library />} />
+          <Route path="/update-enrollment/:enrollmentId" element={<UpdateEnrollment />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/undergraduate" element={<Undergraduate />} />
           <Route path="/postgraduate" element={<PostGraduate />} />
@@ -182,7 +204,12 @@ const NavbarCom = () => {
           <Route path="/eligible" element={<Eligible />} />
           <Route path="/recruitments" element={<Recruitments />} />
           <Route path="/relations" element={<Relations />} />
+          <Route path="/edit-staff/:id" element={<EditStaff />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/Registerhostel" element={<RegisterHostel />} />
+          <Route path="/allPlacementInfo" element={<AllPlacementInfo/>}/>
+          <Route path="/apply/:companyName" element={<PlacementApplication />} />
+          <Route path="/AllHostelsDetails" element={<AllHostelsDetails />} />
         </Routes>
       </div>
     </div>

@@ -4,7 +4,7 @@ import Hostel2 from './Hostel2.jpg';
 import Hostel3 from './Hostel3.jpg';
 import './Hostel.css';
 
-const Hostel = () => {
+const Hostels = () => {
   return (
     <div className="hostel-container">
       <h1 className="hostel-title">HOSTEL – A HOME AWAY FROM HOME</h1>
@@ -58,4 +58,4 @@ const Hostel = () => {
   );
 };
 
-export default Hostel;
+export default Hostels;

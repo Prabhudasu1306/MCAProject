@@ -54,6 +54,27 @@ const Login = ({ onLoginSuccess }) => {
 
   return (
     <div className="page-container">
+      {/* Left side with scrolling text */}
+      <div className="left-container">
+        <div className="scrolling-text-container">
+          <div className="scrolling-text">
+            {/* <p>
+              Welcome to THE THOP UNIVERSITY! <br />
+              - Excellence in Education <br />
+              - World-Class Faculty <br />
+              - Modern Infrastructure <br />
+              - 100% Placement Assistance <br />
+              - Research Opportunities <br />
+              - Global Exposure Programs <br />
+              - Top Ranked in Innovation <br />
+              - Strong Alumni Network <br />
+              Join us and shape your future today!
+            </p> */}
+          </div>
+        </div>
+      </div>
+
+      {/* Center login form */}
       <div className="center-container">
         <div className="login-container">
           <h2>Login</h2>
@@ -87,6 +108,17 @@ const Login = ({ onLoginSuccess }) => {
             </div>
             <p>New member? <Link to="/signup">Sign up</Link></p>
           </form>
+        </div>
+      </div>
+
+      
+      <div className="right-container">
+        <div className="scrolling-images">
+          {/* <div className="image-container-inner">
+            <img src="your-image1.jpg" alt="img1" />
+            <img src="your-image2.jpg" alt="img2" />
+            <img src="your-image3.jpg" alt="img3" />
+          </div> */}
         </div>
       </div>
     </div>

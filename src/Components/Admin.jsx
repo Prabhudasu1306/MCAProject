@@ -16,8 +16,8 @@ const Admin = () => {
   const [drivers, setDrivers] = useState([]);
   const [nonTeaching, setNonTeaching] = useState([]);
   const [courses, setCourses] = useState([]);
-  const [students, setStudents] = useState([]);
-  const [teachingStaff, setTeachingStaff] = useState([]); // New state
+  const [teachingStaff, setTeachingStaff] = useState([]);
+  const [enrolledStudents, setEnrolledStudents] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:8080/api/drives/all')
@@ -26,19 +26,23 @@ const Admin = () => {
 
     axios.get('http://localhost:8080/api/NonTeaching/all')
       .then(res => setNonTeaching(res.data))
-      .catch(err => console.error('Error fetching non‐teaching staff:', err));
+      .catch(err => console.error('Error fetching non-teaching staff:', err));
 
     axios.get('http://localhost:8080/courses/all')
       .then(res => setCourses(res.data))
       .catch(err => console.error('Error fetching courses:', err));
 
     axios.get('http://localhost:8080/api/teaching-staff/all')
-      .then(res => setTeachingStaff(res.data)) // Corrected
+      .then(res => setTeachingStaff(res.data))
       .catch(err => console.error('Error fetching teaching staff:', err));
 
-    axios.get('http://localhost:8080/api/students/all')
-      .then(res => setStudents(res.data))
-      .catch(err => console.error('Error fetching students:', err));
+    // axios.get('http://localhost:8080/api/students/all')
+    //   .then(res => setStudents(res.data))
+    //   .catch(err => console.error('Error fetching students:', err));
+
+    axios.get('http://localhost:8080/api/enrollments')
+      .then(res => setEnrolledStudents(res.data))
+      .catch(err => console.error('Error fetching enrollments:', err));
   }, []);
 
   const chartData = [
@@ -46,10 +50,10 @@ const Admin = () => {
     { name: 'Non-Teaching', count: nonTeaching.length },
     { name: 'Courses', count: courses.length },
     { name: 'Teaching', count: teachingStaff.length },
-    { name: 'Students', count: students.length },
+    { name: 'Enrolled', count: enrolledStudents.length },
   ];
 
-  const colors = ['#8884d8', '#82ca9d', '#ffc658', '#ff7f50', '#a83279'];
+  const colors = ['#8884d8', '#82ca9d', '#ffc658', '#ff7f50', '#a83279', '#4db6ac'];
 
   return (
     <div style={{ padding: 20 }}>

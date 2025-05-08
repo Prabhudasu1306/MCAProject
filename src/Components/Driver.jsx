@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios"; // Import axios for HTTP requests
-import "./Driver.css"; // Ensure this CSS file contains the styles you provided
+import axios from "axios"; 
+import "./Driver.css"; 
 
 const Driver = () => {
   const [formData, setFormData] = useState({

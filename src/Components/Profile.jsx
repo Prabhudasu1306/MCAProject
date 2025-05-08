@@ -30,7 +30,7 @@ const Profile = () => {
     <div style={{ padding: '20px' }}>
       <h2>Welcome, {user.firstName}!</h2>
       <p><strong>Email:</strong> {user.email}</p>
-      <p><strong>Phone:</strong> {user.phone}</p>
+      <p><strong>Password:</strong> {user.password}</p>
 
       <Link to="/edit-profile">
         <button>Edit Profile</button>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './Enrollment.css';
 
 const Enrollment = () => {
   const [name, setName] = useState('');
@@ -11,7 +12,13 @@ const Enrollment = () => {
 
   useEffect(() => {
     axios.get('http://localhost:8080/courses/all')
-      .then(res => setCourses(Array.isArray(res.data) ? res.data : []))
+      .then(res => {
+        if (Array.isArray(res.data)) {
+          setCourses(res.data);
+        } else {
+          setCourses([]);
+        }
+      })
       .catch(() => setCourses([]));
   }, []);
 
@@ -37,7 +44,7 @@ const Enrollment = () => {
 
     try {
       const orderRes = await axios.post('http://localhost:8080/api/students/createOrder', {
-        amount: Number(fee) * 100
+        amount: Number(fee)
       });
       const order = orderRes.data;
 
@@ -48,20 +55,25 @@ const Enrollment = () => {
         name: 'The THOP University',
         description: `Enrollment for ${selectedCourse}`,
         order_id: order.id,
-        handler: async response => {
-          await axios.post('http://localhost:8080/enroll', {
+        handler: async (response) => {
+          await axios.post('http://localhost:8080/api/enrollments', {
             name,
             fee,
             course: selectedCourse,
             duration: selectedDuration,
             paymentId: response.razorpay_payment_id
           });
+
           alert('Payment & Enrollment successful!');
-          setName(''); setFee(''); setSelectedCourse(''); setSelectedDuration('');
+          setName('');
+          setFee('');
+          setSelectedCourse('');
+          setSelectedDuration('');
         },
         prefill: { name, email: '', contact: '' },
         theme: { color: '#3399cc' }
       };
+
       new window.Razorpay(options).open();
     } catch (err) {
       console.error(err);
@@ -77,34 +89,28 @@ const Enrollment = () => {
   };
 
   return (
-    <div style={{ padding: 20, maxWidth: 600 }}>
+    <div className="enrollment-container">
       <h2>Enrollment Form</h2>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(2, 1fr)',
-        gap: 20
-      }}>
+      <div className="enrollment-form">
         <div>
           <label>Name</label>
           <input
             value={name}
             onChange={e => setName(e.target.value)}
             placeholder="Enter your name"
-            style={{ width: '100%' }}
           />
         </div>
         <div>
-          <label>Fee</label>
+          <label>Fee (in Rupees)</label>
           <input
             value={fee}
             onChange={e => setFee(e.target.value)}
-            placeholder="Enter fee"
-            style={{ width: '100%' }}
+            placeholder="Enter fee in Rupees"
           />
         </div>
         <div>
           <label>Course</label>
-          <select value={selectedCourse} onChange={handleCourseChange} style={{ width: '100%' }}>
+          <select value={selectedCourse} onChange={handleCourseChange}>
             <option value="">Select Course</option>
             {courses.map((c, i) => (
               <option key={i} value={c.name}>{c.name}</option>
@@ -116,7 +122,6 @@ const Enrollment = () => {
           <select
             value={selectedDuration}
             onChange={e => setSelectedDuration(e.target.value)}
-            style={{ width: '100%' }}
           >
             <option value="">Select Duration</option>
             {durations.map((d, i) => (
@@ -125,18 +130,10 @@ const Enrollment = () => {
           </select>
         </div>
       </div>
-      <button
-        onClick={handleProcessToPay}
-        style={{ marginTop: 20, padding: '10px 20px' }}
-      >
-        Process to Pay
-      </button>
-      <button
-        onClick={handleClear}
-        style={{ marginTop: 20, padding: '10px 20px', marginLeft: 10 }}
-      >
-        Clear
-      </button>
+      <div className="enrollment-buttons">
+        <button className="pay-btn" onClick={handleProcessToPay}>Process to Pay</button>
+        <button className="clear-btn" onClick={handleClear}>Clear</button>
+      </div>
     </div>
   );
 };

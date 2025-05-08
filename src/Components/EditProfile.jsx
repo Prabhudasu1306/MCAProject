@@ -9,11 +9,11 @@ const EditProfile = () => {
   const [firstName, setFirstName] = useState(user?.firstName || '');
   const [lastName, setLastName] = useState(user?.lastName || '');
   const [email, setEmail] = useState(user?.email || '');
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState(''); 
   const [role, setRole] = useState(user?.role || '');
 
   useEffect(() => {
-    if (!user) navigate('/login'); 
+    if (!user) navigate('/login');
   }, [user, navigate]);
 
   const handleSubmit = async (e) => {
@@ -23,7 +23,7 @@ const EditProfile = () => {
       firstName,
       lastName,
       email,
-      password,
+      password,  
       role,
     };
 
@@ -38,10 +38,9 @@ const EditProfile = () => {
 
       if (response.ok) {
         const updatedUserData = await response.json();
-        
         localStorage.setItem('user', JSON.stringify(updatedUserData));
         alert('Profile updated successfully!');
-        navigate('/profile'); 
+        navigate('/profile');
       } else {
         alert('Error updating profile');
       }
@@ -52,7 +51,7 @@ const EditProfile = () => {
   };
 
   const handleCancel = () => {
-    navigate('/profile'); 
+    navigate('/profile');
   };
 
   return (
