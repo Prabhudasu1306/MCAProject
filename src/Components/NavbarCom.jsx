@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Navbar, Nav, Container, Dropdown, NavDropdown } from 'react-bootstrap';
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 
-
+import PlacedStudentsList from './PlacedStudentsList'
 import PostGraduate from './PostGraduate';
 import AddCourse from './AddCourse';
 import About from './About';
@@ -20,8 +20,11 @@ import NonTeaching from './NonTeaching';
 import CoreValues from './CoreValues';
 import Overview from './Overview';
 import FounderChancellor from './FounderChancellor';
+import ResultFetcher from './ResultFetcher'
+import AddResult from './AddResult'
 import Chancellor from './Chancellor';
 import Vision from './Vision';
+import Home from './Home'
 import Culturals from './Culturals';
 import Library from './Library';
 import Feedback from './Feedback';
@@ -37,6 +40,7 @@ import Recruitments from './Recruitments';
 import Relations from './Relations';
 import Admin from './Admin';
 import Enrollment from './Enrollment';
+import AddPlacedStudent from './AddPlacedStudent'
 import './NavbarCom.css';
 import Sports from './Sports';
 import Placement from './Placement';
@@ -47,6 +51,7 @@ import UpdateEnrollment from './UpdateEnrollment';
 import Hostels from './Hostels';
 import RegisterHostel from './RegisterHostel';
 import AllHostelsDetails from './AllHostelsDetails';
+
 
 const NavbarCom = () => {
   const navigate = useNavigate();
@@ -73,6 +78,7 @@ const NavbarCom = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               {userRole === 'ADMIN' && (
+                
                 <NavDropdown title="Admin Panel" id="admin-panel-dropdown">
                   <NavDropdown.Item as={Link} to="/admin">Dashboard</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/allstaff">All Staff</NavDropdown.Item>
@@ -82,9 +88,14 @@ const NavbarCom = () => {
                   <NavDropdown.Item as={Link} to="/placemntDrive">PlacementDrive</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/allenrollements">AllEnrollments</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/AllHostelsDetails">AllHostelsDetails</NavDropdown.Item>
+                     <NavDropdown.Item as={Link} to="/Addresult">Addresult</NavDropdown.Item>
+
                   
                 </NavDropdown>
               )}
+              <Nav.Link as={Link} to="/home" className="home">Home</Nav.Link>
+              <Nav.Link as={Link} to="/about" className="about">About</Nav.Link>
+
               <NavDropdown title="Institution Info" id="institution-info-dropdown">
                 <NavDropdown.Item as={Link} to="/core-values">Core Values</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/overview">Overview</NavDropdown.Item>
@@ -93,12 +104,12 @@ const NavbarCom = () => {
                 <NavDropdown.Item as={Link} to="/vision">Vision</NavDropdown.Item>
               </NavDropdown>
 
-              {/* <NavDropdown title="Academics" id="academics-dropdown"> */}
-                {/* <NavDropdown.Item as={Link} to="/courses-offered">Courses Offered</NavDropdown.Item> */}
-                {/* <NavDropdown.Item as={Link} to="/schools">Colleges</NavDropdown.Item> */}
-                {/* <NavDropdown.Item as={Link} to="/library">Library</NavDropdown.Item> */}
-                {/* <NavDropdown.Item as={Link} to="/feedback">Feedback</NavDropdown.Item> */}
-              {/* </NavDropdown> */}
+              <NavDropdown title="Academics" id="academics-dropdown"> 
+                 <NavDropdown.Item as={Link} to="/courses-offered">Courses Offered</NavDropdown.Item>
+                 <NavDropdown.Item as={Link} to="/schools">Colleges</NavDropdown.Item> 
+                <NavDropdown.Item as={Link} to="/library">Library</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/feedback">Feedback</NavDropdown.Item>
+              </NavDropdown>
 
               <NavDropdown title="Admission" id="admission-dropdown">
                 <NavDropdown.Item as={Link} to="/undergraduate">Course Offered</NavDropdown.Item>
@@ -123,13 +134,19 @@ const NavbarCom = () => {
                 <NavDropdown.Item as={Link} to="/contactus">Transportation</NavDropdown.Item>
               </NavDropdown>
 
-              <Nav.Link as={Link} to="/enrollment" className="about-link">Enrollment</Nav.Link>
-              <Nav.Link as={Link} to="/allPlacementInfo" className="about-link">PlacementsAll</Nav.Link>
-              <Nav.Link as={Link} to="/Registerhostel" className="Registerhostel-link">Registerhostel</Nav.Link>
+<NavDropdown title="Enrollment " id="Campus Life-dropdown">
+                <NavDropdown.Item as={Link} to="/enrollment">Enrollment</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/allPlacementInfo">PlacementsAll</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/Registerhostel">Registerhostel</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/resultfetching">resultfatching</NavDropdown.Item>
+
+              </NavDropdown>
+
+          
               
 
-              {/* <Nav.Link as={Link} to="/placementApplication" className="about-link">ApplyforDrive</Nav.Link> */}
-              {/* <Nav.Link as={Link} to="/allenrollements" className="allenrollements-link">ALlEnrollments</Nav.Link> */}
+              <Nav.Link as={Link} to="/addplacedstudent" className="addplacedstudent-link">addplacedstudent</Nav.Link>
+              <Nav.Link as={Link} to="/PlacedStudentsList" className="PlacedStudentsList-link">PlacedStudentsList</Nav.Link>
         
 
             </Nav>
@@ -174,6 +191,13 @@ const NavbarCom = () => {
               <Route path="/addcourse" element={<AddCourse />} />
               <Route path="/editstaff/:id" element={<EditStaff />} />
               <Route path="/placemntDrive" element={<Placement/>}/>
+               <Route path="/home" element={<Home/>}/>
+              <Route path="/about" element={<About/>}/>
+              <Route path="/Addresult" element={<AddResult/>}/>
+            <Route path="/resultfetching" element={<ResultFetcher />} />
+               <Route path="/addplacedstudent" element={<AddPlacedStudent />} />
+                              <Route path="/PlacedStudentsList" element={<PlacedStudentsList />} />
+
               <Route path="/allenrollements" element={<AllEnrollemnt/>}/>
             
 
@@ -182,6 +206,7 @@ const NavbarCom = () => {
           )}
 
           <Route path="/about-placements" element={<About />} />
+          <Route path="/resultfetching" element={<ResultFetcher />} />
           <Route path="/nonteaching" element={<NonTeaching />} />
           <Route path="/core-values" element={<CoreValues />} />
           <Route path="/overview" element={<Overview />} />
@@ -189,6 +214,12 @@ const NavbarCom = () => {
           <Route path="/chancellor" element={<Chancellor />} />
           <Route path="/vision" element={<Vision />} />
           <Route path="sports" element={<Sports/>}/>
+          <Route path="/home" element={<Home/>}/>
+              <Route path="/about" element={<About/>}/>
+               <Route path="/addplacedstudent" element={<AddPlacedStudent />} />
+PlacedStudentsList
+               <Route path="/PlacedStudentsList" element={<PlacedStudentsList />} />
+
           <Route path="/courses-offered" element={<CoursesOffered />} />
           <Route path="/culturals" element={< Culturals/>} />
           <Route path="hostel-facility" element={<Hostels/>} />
@@ -211,7 +242,6 @@ const NavbarCom = () => {
           <Route path="/allPlacementInfo" element={<AllPlacementInfo/>}/>
           <Route path="/apply/:companyName" element={<PlacementApplication />} />
           <Route path="/AllHostelsDetails" element={<AllHostelsDetails />} />
-          
         </Routes>
       </div>
     </div>
