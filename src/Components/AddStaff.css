@@ -1,0 +1,126 @@
+.add-staff-container {
+  max-width: 900px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.add-staff-card {
+  border: none;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.add-staff-card .card-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #004d99;
+  margin-bottom: 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.add-staff-card .card-title::after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 4px;
+  background-color: #007bff;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #343a40;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+.modern-button {
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+}
+
+.submit-button {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
+}
+
+.submit-button:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.clear-button {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: white;
+}
+
+.clear-button:hover {
+  background-color: #5a6268;
+  border-color: #5a6268;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.alert {
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+@media (max-width: 768px) {
+  .add-staff-container {
+    padding: 0 15px;
+  }
+  .add-staff-card {
+    padding: 25px;
+  }
+  .add-staff-card .card-title {
+    font-size: 1.8rem;
+  }
+  .modern-button {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 576px) {
+  .add-staff-card .card-title {
+    font-size: 1.5rem;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .d-flex.gap-3 {
+    flex-direction: column;
+    gap: 10px !important;
+  }
+  .modern-button {
+    width: 100%;
+  }
+}

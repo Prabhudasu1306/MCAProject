@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import './PlacementApplication.css'; // Import the CSS
 
 const PlacementApplication = () => {
   const { companyName } = useParams();
@@ -68,29 +69,39 @@ const PlacementApplication = () => {
   };
 
   return (
-    <div style={{ maxWidth: '700px', margin: 'auto', padding: '20px' }}>
-      <h2 style={{ textAlign: 'center' }}>Placement Application Form</h2>
-      {message && <p style={{ textAlign: 'center', color: 'green' }}>{message}</p>}
+    <div className="placement-form-container">
+      <h2>Placement Application Form</h2>
+      {message && <p className="placement-form-message">{message}</p>}
       <form onSubmit={handleSubmit}>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '20px',
-            marginBottom: '20px'
-          }}
-        >
+        <div className="placement-form-grid">
           <div>
             <label>Student Name:</label>
-            <input type="text" name="studentName" value={formData.studentName} onChange={handleChange} required />
+            <input
+              type="text"
+              name="studentName"
+              value={formData.studentName}
+              onChange={handleChange}
+              required
+            />
           </div>
           <div>
             <label>Email ID:</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
           </div>
           <div>
             <label>Course:</label>
-            <select name="branch" value={formData.branch} onChange={handleChange} required>
+            <select
+              name="branch"
+              value={formData.branch}
+              onChange={handleChange}
+              required
+            >
               <option value="">Select Course</option>
               <option value="BTech">BTech</option>
               <option value="MTech">MTech</option>
@@ -100,7 +111,12 @@ const PlacementApplication = () => {
           </div>
           <div>
             <label>Year:</label>
-            <select name="year" value={formData.year} onChange={handleChange} required>
+            <select
+              name="year"
+              value={formData.year}
+              onChange={handleChange}
+              required
+            >
               <option value="">Select Year</option>
               {availableYears.map((yearOption, idx) => (
                 <option key={idx} value={yearOption}>{yearOption}</option>
@@ -112,8 +128,8 @@ const PlacementApplication = () => {
             <input type="text" name="company" value={formData.company} readOnly />
           </div>
         </div>
-        <div style={{ textAlign: 'center' }}>
-          <button type="submit" style={{ marginRight: '10px' }}>Apply</button>
+        <div className="placement-form-actions">
+          <button type="submit">Apply</button>
           <button type="button" onClick={handleClear}>Clear</button>
         </div>
       </form>

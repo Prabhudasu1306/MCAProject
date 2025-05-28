@@ -2,6 +2,24 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Enrollment.css';
 
+const loadRazorpayScript = () => {
+  return new Promise((resolve) => {
+    if (window.Razorpay) {
+      resolve(true);
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.onload = () => {
+      resolve(true);
+    };
+    script.onerror = () => {
+      resolve(false);
+    };
+    document.body.appendChild(script);
+  });
+};
+
 const Enrollment = () => {
   const [name, setName] = useState('');
   const [fee, setFee] = useState('');
@@ -42,14 +60,21 @@ const Enrollment = () => {
       return alert('Please fill all fields');
     }
 
+    const res = await loadRazorpayScript();
+
+    if (!res) {
+      alert('Razorpay SDK failed to load. Please check your internet connection.');
+      return;
+    }
+
     try {
       const orderRes = await axios.post('http://localhost:8080/api/students/createOrder', {
-        amount: Number(fee)
+        amount: Number(fee) * 100  // Razorpay expects amount in paise
       });
       const order = orderRes.data;
 
       const options = {
-        key: 'rzp_test_HGl3PTqZYOKXbN',
+        key: 'rzp_test_HGl3PTqZYOKXbN', // Replace with your actual key
         amount: order.amount,
         currency: order.currency,
         name: 'The THOP University',
@@ -74,7 +99,9 @@ const Enrollment = () => {
         theme: { color: '#3399cc' }
       };
 
-      new window.Razorpay(options).open();
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+
     } catch (err) {
       console.error(err);
       alert('Payment initiation failed');

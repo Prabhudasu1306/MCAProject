@@ -1,0 +1,215 @@
+/* Placement.css */
+
+/* --- Modern Color Palette & Design Variables (The "Dacolrars") --- */
+:root {
+  /* Primary Brand Colors */
+  --brand-primary: #0056b3;     /* Deep Blue for main actions/headings */
+  --brand-secondary: #007bff;   /* Brighter Blue for links, subtle accents */
+  --brand-accent: #28a745;      /* Green for success/positive feedback */
+  --brand-danger: #dc3545;      /* Red for errors/alerts */
+
+  /* Text Colors */
+  --text-dark: #2c3e50;        /* Very dark grey-blue for primary text */
+  --text-medium: #5a6a7a;      /* Medium grey for secondary text, labels */
+  --text-light: #90a4ae;       /* Light grey for hints, disabled states */
+  --text-white: #ffffff;       /* Pure white for text on dark backgrounds */
+
+  /* Background Colors */
+  --bg-page: #f8f9fa;         /* Very light grey for the overall page background */
+  --bg-card: #ffffff;         /* White for prominent cards/forms */
+
+  /* Border Colors */
+  --border-light: #e6e9ee;     /* Very light grey for subtle borders */
+  --border-medium: #ced4da;    /* Standard grey for input borders */
+
+  /* Shadows */
+  --shadow-xs: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px; /* Extra small shadow */
+  --shadow-sm: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; /* Small shadow */
+  --shadow-md: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; /* Medium shadow */
+
+  /* Transitions */
+  --transition-fast: all 0.15s ease-out;
+  --transition-medium: all 0.3s ease-out;
+
+  /* Border Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Font Family */
+  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+/* Global body styles for context (optional, if not in index.css) */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.placement-container {
+  max-width: 550px; /* Slightly increased max-width for better spacing */
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md); /* Prominent shadow for the form */
+  text-align: center;
+}
+
+.placement-heading {
+  font-family: var(--font-heading);
+  font-size: 2.2em; /* Adjusted size */
+  color: var(--brand-primary);
+  margin-bottom: 35px; /* More space below heading */
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.placement-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between form groups */
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-medium);
+  font-size: 0.95em;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px; /* More padding */
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  font-size: 1em;
+  color: var(--text-dark);
+  transition: var(--transition-fast);
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--brand-secondary);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 15px; /* Space between buttons */
+  margin-top: 30px; /* More space above buttons */
+}
+
+.submit-button,
+.cancel-button {
+  padding: 12px 25px; /* Consistent padding */
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.95em;
+  box-shadow: var(--shadow-xs);
+}
+
+.submit-button {
+  background-color: var(--brand-primary);
+  color: var(--text-white);
+}
+
+.submit-button:hover {
+  background-color: #004085; /* Slightly darker primary on hover */
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.cancel-button {
+  background-color: var(--text-light); /* Light grey for cancel */
+  color: var(--text-dark);
+}
+
+.cancel-button:hover {
+  background-color: #78909c; /* Darker grey on hover */
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.response-message {
+  margin-top: 25px; /* More space above message */
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  text-align: center;
+  box-shadow: var(--shadow-xs);
+}
+
+.response-message.success {
+  background-color: #d4edda; /* Light green */
+  color: var(--brand-accent); /* Dark green text */
+  border: 1px solid #c3e6cb;
+}
+
+.response-message.error {
+  background-color: #f8d7da; /* Light red */
+  color: var(--brand-danger); /* Dark red text */
+  border: 1px solid #f5c6cb;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+  .placement-container {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: var(--radius-md);
+  }
+
+  .placement-heading {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+  }
+
+  .form-group label {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+  }
+
+  .form-group input {
+    padding: 10px 12px;
+    font-size: 0.9em;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse; /* Stack buttons, cancel on top */
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .submit-button,
+  .cancel-button {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 0.9em;
+  }
+
+  .response-message {
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 0.9em;
+  }
+}

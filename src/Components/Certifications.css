@@ -1,45 +1,149 @@
+/* 1. Global Reset/Box-sizing for consistency */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Define CSS Custom Properties (Variables) */
+:root {
+  --primary-color: #0056b3; /* A deep blue */
+  --secondary-color: #e9ecef; /* Light gray for backgrounds */
+  --text-color: #333;
+  --light-text-color: #6c757d;
+  --border-color: #dee2e6;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s ease;
+  --section-padding: 60px;
+}
+
+/* Base Styles for the overall page */
+.certifications-page {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #f8f9fa;
+  padding: var(--section-padding) 20px; /* Add vertical padding to the whole section */
+  max-width: 1400px; /* Max width for the entire page content */
+  margin: 0 auto; /* Center the page content */
+}
+
 .certifications-heading {
-    font-size: 2rem;
-    text-align: center;
-    color: #007bff;
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 25px;
+  font-size: 2.8em; /* Larger heading for impact */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Styles for the new text paragraphs */
+.intro-text,
+.closing-text {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 30px auto; /* Margin bottom for separation */
+  font-size: 1.15em;
+  color: var(--light-text-color);
+  padding: 0 15px;
+}
+
+.closing-text {
+    margin-top: 40px; /* More space before closing text */
+    margin-bottom: 0; /* No margin at the bottom of the last element */
+}
+
+
+/* 3. Modern Layout for the list: Flexbox for responsiveness */
+.certifications-list {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  justify-content: center; /* Center items horizontally */
+  gap: 20px; /* Space between items */
+  padding: 20px 0; /* Vertical padding for the list */
+}
+
+.certification-item {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 10px; /* Slightly more rounded corners */
+  padding: 20px 30px;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  font-weight: 600; /* Slightly bolder */
+  color: var(--primary-color);
+  flex: 1 1 300px; /* Flex shorthand: grow, shrink, basis (preferred width 300px) */
+  min-width: 250px; /* Ensure a minimum width for readability */
+  max-width: calc(33.33% - 20px); /* Allow 3 items per row, accounting for gap */
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed); /* 4. Transitions for interaction */
+  cursor: pointer;
+  display: flex; /* Use flex inside item to center text vertically if needed */
+  align-items: center;
+  justify-content: center;
+  line-height: 1.3; /* Better line height for multi-line titles */
+}
+
+.certification-item:hover {
+  transform: translateY(-8px); /* More pronounced lift effect on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+/* 5. Responsive Design with Media Queries */
+
+/* For Tablets and smaller desktops */
+@media (max-width: 992px) {
+  .certifications-heading {
+    font-size: 2.2em;
+  }
+  .intro-text,
+  .closing-text {
+    font-size: 1.05em;
+    margin-bottom: 25px;
+  }
+  .certifications-list {
+    gap: 15px;
+  }
+  .certification-item {
+    flex: 1 1 45%; /* Two items per row */
+    max-width: calc(50% - 15px); /* Adjust for 2 items per row with gap */
+    padding: 18px 25px;
+    font-size: 0.95em;
+  }
+}
+
+/* For Mobile devices */
+@media (max-width: 768px) {
+  .certifications-page {
+    padding: var(--section-padding) 15px;
+  }
+  .certifications-heading {
+    font-size: 1.9em;
     margin-bottom: 20px;
   }
-  
+  .intro-text,
+  .closing-text {
+    font-size: 0.95em;
+    margin-bottom: 20px;
+  }
   .certifications-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin: 0 auto;
-    max-width: 800px;
+    padding: 10px 0;
+    gap: 10px;
   }
-  
   .certification-item {
-    background-color: #f4f4f4;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: none;
-    font-size: 1.1rem;
-    text-align: left;
-    color: #333;
-    position: relative;
-    padding-left: 30px;
+    flex: 1 1 100%;
+    max-width: 100%;
+    padding: 15px 20px;
+    font-size: 0.9em;
   }
-  
-  .certification-item::before {
-    content: '';
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: red;
+}
+@media (max-width: 480px) {
+  .certifications-heading {
+    font-size: 1.6em;
   }
-  
-  @media (max-width: 768px) {
-    .certifications-list {
-      grid-template-columns: 1fr;
-    }
+  .intro-text,
+  .closing-text {
+    font-size: 0.9em;
+    margin-bottom: 15px;
   }
-  
+  .certifications-item {
+    padding: 12px 15px;
+  }
+}

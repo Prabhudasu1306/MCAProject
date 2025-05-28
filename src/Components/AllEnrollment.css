@@ -1,64 +1,156 @@
-.enrollment-container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', sans-serif;
+.all-enrollment-container {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.enrollment-page-title {
+  color: #2c3e50;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.enrollment-page-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background-color: #007bff;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.enrollment-table-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.enrollment-table-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.enrollment-table-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: #17a2b8;
+  margin: 8px auto 0;
+  border-radius: 1.5px;
+}
+
+.enrollment-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.enrollment-table th,
+.enrollment-table td {
+  padding: 12px 15px;
+  text-align: left;
+  vertical-align: middle;
+  border-top: 1px solid #e9ecef;
+}
+
+.enrollment-table thead th {
+  background-color: #eaf1f8;
+  color: #343a40;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.enrollment-table tbody tr:hover {
+  background-color: #eef5fc;
+}
+
+.enrollment-table tbody tr:nth-child(even) {
+  background-color: #fdfdfe;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  min-width: 70px;
+}
+
+.edit-btn {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #138496;
+  border-color: #117a8b;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .enrollment-page-title {
+    font-size: 2.2rem;
   }
-  
-  .enrollment-container h3 {
-    text-align: center;
-    color: #343a40;
-    margin-bottom: 25px;
+  .enrollment-table-title {
+    font-size: 1.6rem;
   }
-  
-  .enrollment-table {
-    width: 100%;
-    border-collapse: collapse;
+}
+
+@media (max-width: 768px) {
+  .all-enrollment-container {
+    padding: 15px;
   }
-  
-  .enrollment-table th,
-  .enrollment-table td {
-    padding: 12px 15px;
-    border: 1px solid #ccc;
-    text-align: center;
+  .enrollment-page-title {
+    font-size: 2rem;
   }
-  
-  .enrollment-table th {
-    background-color: #212529;
-    color: #fff;
+  .enrollment-table-card {
+    padding: 15px;
   }
-  
-  .enrollment-table tr:nth-child(even) {
-    background-color: #f9f9f9;
+  .enrollment-table-title {
+    font-size: 1.4rem;
   }
-  
-  .edit-button,
-  .delete-button {
-    padding: 6px 12px;
-    margin: 0 4px;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
+  .enrollment-table th, .enrollment-table td {
+    padding: 10px;
+    font-size: 0.85rem;
   }
-  
-  .edit-button {
-    background-color: #007bff;
+  .action-btn {
+    padding: 5px 8px;
+    font-size: 0.75rem;
+    min-width: 60px;
   }
-  
-  .delete-button {
-    background-color: #dc3545;
+}
+
+@media (max-width: 576px) {
+  .enrollment-page-title {
+    font-size: 1.8rem;
   }
-  
-  .edit-button:hover {
-    background-color: #0056b3;
+  .enrollment-table-title {
+    font-size: 1.2rem;
   }
-  
-  .delete-button:hover {
-    background-color: #c82333;
+  .enrollment-table th, .enrollment-table td {
+    word-break: break-word;
   }
-  
+  .action-btn {
+    margin: 2px;
+  }
+}

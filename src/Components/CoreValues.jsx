@@ -1,53 +1,66 @@
 import React from 'react';
 import './CoreValues.css';
-import Coreview from './Coreview.jpg';
+import Coreview from './Coreview.jpg'; // Ensure this image path is correct
 
 const CoreValues = () => {
   return (
     <div className="core-values-container">
-      <h2 className="core-values-title">Core Values</h2>
+      <h2 className="core-values-title">Our Core Values</h2>
+
+      <p className="core-values-intro">
+        At Thop University, our foundation is built upon a set of core values that guide our actions,
+        shape our culture, and define our commitment to our students, faculty, staff, and the global community.
+        These principles are woven into the fabric of our academic and administrative endeavors, fostering an environment
+        where excellence, integrity, and innovation thrive.
+      </p>
+
       <img
         src={Coreview}
-        alt="University Profile"
+        alt="University Vision"
         className="core-values-image"
       />
 
       <div className="core-values-content">
-        <h3 className="core-values-subtitle">Integrity</h3>
-        <p className="core-values-paragraph">
-          We emphasise on high ethical standards in our actions and are committed to being transparent, responsible, and accountable.
-        </p>
+        <div className="core-value-item">
+          <h3>Integrity</h3>
+          <p>We uphold honesty, transparency, and strong moral principles in everything we do, ensuring trust and ethical conduct.</p>
+        </div>
 
-        <h3 className="core-values-subtitle">Nobility</h3>
-        <p className="core-values-paragraph">
-          We inculcate ethical values parallel to the curriculum enrichment to the student community, so that they outstand amongst their peers irrespective of the environment in which they are placed.
-        </p>
+        <div className="core-value-item">
+          <h3>Empathy</h3>
+          <p>We foster a compassionate environment that respects every individual's experience and identity, promoting understanding and support.</p>
+        </div>
 
-        <h3 className="core-values-subtitle">Sustainability</h3>
-        <p className="core-values-paragraph">
-          We develop, practise, and emphasize protocols in academics and research enabling ourselves to be competitive, ensuring environmental and social sustainability.
-        </p>
+        <div className="core-value-item">
+          <h3>Innovation</h3>
+          <p>We embrace creativity and forward-thinking to drive impactful academic and research outcomes, pushing the boundaries of knowledge.</p>
+        </div>
 
-        <h3 className="core-values-subtitle">Partnership and Collaboration</h3>
-        <p className="core-values-paragraph">
-          We encourage academic and research partnerships with organisations and universities at National and International levels. We value and applaud the relationships we have with our partners.
-        </p>
+        <div className="core-value-item">
+          <h3>Collaboration</h3>
+          <p>We build strong partnerships to share knowledge and expand opportunities globally, fostering a spirit of collective growth.</p>
+        </div>
 
-        <h3 className="core-values-subtitle">Inclusion and Diversity</h3>
-        <p className="core-values-paragraph">
-          We are committed to facilitating diverse student and faculty culture and encourage multi-cultural learning in the University. We provide opportunities to work, learn, and embrace the diversity of every individual irrespective of race, gender, religion, nationality, age, social background, physical ability, and mental competence.
-        </p>
+        <div className="core-value-item">
+          <h3>Diversity</h3>
+          <p>We value a rich blend of cultures, ideas, and perspectives that enhance our learning community, celebrating uniqueness.</p>
+        </div>
 
-        <h3 className="core-values-subtitle">Responsibility</h3>
-        <p className="core-values-paragraph">
-          We believe in education for all. We take pride in owning responsibility and commitment towards society by supporting the education of students from rural, economically backward communities, differently abled individuals, and acid attack victims with full financial assistance.
-        </p>
+        <div className="core-value-item">
+          <h3>Social Responsibility</h3>
+          <p>We are committed to contributing positively to society through education, inclusion, and impactful community outreach.</p>
+        </div>
 
-        <h3 className="core-values-subtitle">Excellence</h3>
-        <p className="core-values-paragraph">
-          We focus on excelling in all our academic and research activities, ensure the best academic quality in our programmes, encourage innovations, and remain receptive to the ever-changing needs of our stakeholders.
-        </p>
+        <div className="core-value-item">
+          <h3>Excellence</h3>
+          <p>We strive for the highest standards in teaching, learning, and institutional development, continuously pursuing mastery.</p>
+        </div>
       </div>
+
+      <p className="core-values-outro">
+        These core values are not just statements; they are living principles that define who we are and inspire what we aspire to be.
+        They empower our community to make a meaningful difference and contribute to a better world.
+      </p>
     </div>
   );
 };

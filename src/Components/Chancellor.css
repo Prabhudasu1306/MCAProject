@@ -1,0 +1,67 @@
+/* Overall container for the founder and chancellor details */
+.founder-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title for the section */
+  .founder-title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #333;
+  }
+  
+  /* Container for each profile */
+  .founder-profile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  
+  /* Styling for the images of the founders */
+  .founder-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+  
+  /* Text content box next to the images */
+  .founder-text {
+    flex: 1;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Name of the founder */
+  .founder-name {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Subtitle under each section */
+  .founder-subheading {
+    font-size: 1.4em;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  /* Paragraph styling inside the text boxes */
+  .founder-text p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  

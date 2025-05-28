@@ -1,124 +1,230 @@
-/* General styles */
+/* Variables for consistent styling - Consider placing these in a global CSS file if you have one */
+:root {
+  --primary-color: #0056b3; /* A strong blue */
+  --secondary-color: #007bff; /* A lighter blue for accents */
+  --text-color: #333;
+  --light-text-color: #666;
+  --background-color: #f8f9fa; /* Light grey background */
+  --card-background: #ffffff; /* White background for cards */
+  --border-color: #dee2e6;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  --transition-speed: 0.3s;
+  --border-radius-base: 8px;
+}
+
+/* General Body and Container Styles */
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .hostel-container {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    color: #333;
-  }
-  
-  .hostel-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #1a73e8;
-  }
-  
-  .hostel-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-    text-align: center;
-    margin-top: 40px;
-    color: #2e7d32;
-  }
-  
-  .hostel-images {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .hostel-item {
-    width: 30%;
-    text-align: center;
-  }
-  
-  .hostel-subtitle {
-    font-size: 1.5rem;
-    color: #2e7d32;
-    margin-bottom: 10px;
-  }
-  
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background: var(--card-background);
+  border-radius: var(--border-radius-base);
+  box-shadow: 0 5px 15px var(--shadow-light);
+  overflow: hidden; /* Ensures no content spills out */
+}
+
+/* Headings */
+.hostel-title {
+  font-size: 2.8em;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.section-title {
+  font-size: 2.2em;
+  color: var(--secondary-color);
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.hostel-subtitle {
+  font-size: 1.5em;
+  color: var(--primary-color);
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.facilities-title,
+.health-title,
+.rules-title {
+  font-size: 1.8em;
+  color: var(--primary-color);
+  margin-top: 35px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  text-align: left; /* Align these titles to the left */
+}
+
+/* Paragraphs and Lists */
+.hostel-description,
+.rules-description {
+  font-size: 1.1em;
+  color: var(--light-text-color);
+  text-align: justify;
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+
+.facilities-list,
+.health-list {
+  list-style-type: none; /* Remove default bullet points */
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.facility-item,
+.health-item {
+  background-color: var(--background-color);
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-left: 5px solid var(--secondary-color);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-speed);
+}
+
+.facility-item:hover,
+.health-item:hover {
+  transform: translateX(5px);
+}
+
+/* Image Section */
+.hostel-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for images */
+  gap: 25px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.hostel-item {
+  background: var(--card-background);
+  border-radius: var(--border-radius-base);
+  box-shadow: 0 4px 12px var(--shadow-light);
+  overflow: hidden; /* Ensures image corners are rounded with the card */
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.hostel-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px var(--shadow-medium);
+}
+
+.hostel-img {
+  width: 100%;
+  height: 250px; /* Fixed height for images */
+  object-fit: cover; /* Ensures images cover the area without distortion */
+  /* For 'faces are cutting' issue, consider: object-fit: contain; background-color: #e9ecef; */
+  /* Or if sticking with cover, adjust position: object-position: top; */
+  display: block;
+}
+
+/* Responsive adjustments for images */
+@media (max-width: 992px) {
   .hostel-img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 200px;
   }
-  
-  .facilities-title,
-  .health-title,
-  .rules-title {
-    font-size: 1.8rem;
-    color: #2e7d32;
-    margin-top: 40px;
-    text-align: center;
+}
+
+@media (max-width: 576px) {
+  .hostel-img {
+    height: 180px;
   }
-  
-  .facilities-list,
-  .health-list {
-    list-style-type: none;
-    padding-left: 0;
-    text-align: left;
+}
+
+/* Apply Now Button Section */
+.apply-hostel-section {
+  text-align: center;
+  margin: 50px auto; /* Centering the button and providing more vertical space */
+}
+
+.apply-hostel-button {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 15px 35px; /* Slightly larger padding for a more substantial button */
+  border: none;
+  border-radius: var(--border-radius-base); /* Using consistent border-radius */
+  font-size: 1.3em; /* Slightly larger font size */
+  font-weight: 700; /* Bolder text */
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+  box-shadow: 0 6px 15px rgba(0, 86, 179, 0.25); /* More prominent shadow */
+  letter-spacing: 0.5px; /* Add slight letter spacing */
+  outline: none; /* Remove outline on focus for cleaner look */
+}
+
+.apply-hostel-button:hover {
+  background-color: #004085; /* Darker shade on hover */
+  transform: translateY(-5px); /* More pronounced lift effect */
+  box-shadow: 0 10px 25px rgba(0, 86, 179, 0.4); /* Larger shadow on hover */
+}
+
+.apply-hostel-button:active {
+  transform: translateY(0); /* Button pushes down on click */
+  box-shadow: 0 3px 8px rgba(0, 86, 179, 0.2);
+  background-color: #003366; /* Even darker on active */
+}
+
+/* Responsive adjustments for the main container */
+@media (max-width: 768px) {
+  .hostel-container {
     margin: 20px auto;
-    max-width: 800px;
+    padding: 15px;
   }
-  
+
+  .hostel-title {
+    font-size: 2.2em;
+  }
+
+  .section-title {
+    font-size: 1.8em;
+  }
+
+  .apply-hostel-button {
+    font-size: 1.1em;
+    padding: 12px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hostel-title {
+    font-size: 1.8em;
+  }
+
+  .section-title {
+    font-size: 1.6em;
+  }
+
+  .hostel-description,
+  .rules-description,
   .facility-item,
   .health-item {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 10px;
+    font-size: 1em;
   }
-  
-  .rules-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    text-align: center;
-    max-width: 800px;
-    margin: 20px auto;
+
+  .apply-hostel-button {
+    font-size: 1em;
+    padding: 10px 25px;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .hostel-images {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .hostel-item {
-      width: 80%;
-      margin-bottom: 20px;
-    }
-  
-    .section-title,
-    .facilities-title,
-    .health-title,
-    .rules-title {
-      font-size: 1.5rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .hostel-title {
-      font-size: 2rem;
-    }
-  
-    .hostel-description,
-    .facility-item,
-    .health-item,
-    .rules-description {
-      font-size: 1rem;
-    }
-  
-    .hostel-subtitle {
-      font-size: 1.2rem;
-    }
-  }
-  
+}

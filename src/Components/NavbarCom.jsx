@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Navbar, Nav, Container, Dropdown, NavDropdown } from 'react-bootstrap';
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
@@ -210,6 +211,7 @@ const NavbarCom = () => {
           <Route path="/allPlacementInfo" element={<AllPlacementInfo/>}/>
           <Route path="/apply/:companyName" element={<PlacementApplication />} />
           <Route path="/AllHostelsDetails" element={<AllHostelsDetails />} />
+          
         </Routes>
       </div>
     </div>

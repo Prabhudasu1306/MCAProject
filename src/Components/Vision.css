@@ -1,0 +1,189 @@
+/* Vision.css */
+
+/* --- Modern Color Palette & Design Variables --- */
+:root {
+  /* Primary Brand Colors */
+  --brand-primary: #0056b3;     /* Deep Blue for main actions/headings */
+  --brand-secondary: #007bff;   /* Brighter Blue for links, subtle accents */
+  --brand-accent: #28a745;      /* Green for success/positive feedback */
+  --brand-danger: #dc3545;      /* Red for errors/alerts */
+
+  /* Text Colors */
+  --text-dark: #2c3e50;        /* Very dark grey-blue for primary text */
+  --text-medium: #5a6a7a;      /* Medium grey for secondary text, labels */
+  --text-light: #90a4ae;       /* Light grey for hints, disabled states */
+  --text-white: #ffffff;       /* Pure white for text on dark backgrounds */
+
+  /* Background Colors */
+  --bg-page: #f8f9fa;         /* Very light grey for the overall page background */
+  --bg-card: #ffffff;         /* White for prominent cards/forms */
+
+  /* Border Colors */
+  --border-light: #e6e9ee;     /* Very light grey for subtle borders */
+  --border-medium: #ced4da;    /* Standard grey for input borders */
+
+  /* Shadows */
+  --shadow-xs: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px; /* Extra small shadow */
+  --shadow-sm: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; /* Small shadow */
+  --shadow-md: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; /* Medium shadow */
+
+  /* Transitions */
+  --transition-fast: all 0.15s ease-out;
+  --transition-medium: all 0.3s ease-out;
+
+  /* Border Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Font Family */
+  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+/* Global body styles for context (optional, if not in index.css) */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.vision-container {
+  max-width: 900px; /* Slightly wider for the content */
+  margin: 50px auto;
+  padding: 30px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  text-align: center; /* Center align all content within the container */
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Space between Vision and Mission sections */
+}
+
+.vision-section {
+  padding: 20px;
+  background-color: var(--bg-page); /* Lighter background for sections */
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs); /* Subtle shadow for inner sections */
+  border: 1px solid var(--border-light);
+}
+
+.vision-heading {
+  font-family: var(--font-heading);
+  font-size: 2.5em;
+  color: var(--brand-primary);
+  margin-bottom: 20px;
+  font-weight: 700;
+  border-bottom: 3px solid var(--brand-secondary);
+  padding-bottom: 10px;
+  display: inline-block; /* Makes border only as wide as text */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.vision-text {
+  font-size: 1.1em;
+  color: var(--text-medium);
+  line-height: 1.8;
+  max-width: 700px; /* Limit width for readability */
+  margin: 0 auto; /* Center paragraph */
+}
+
+.vision-text strong {
+  color: var(--text-dark); /* Make bold text stand out more */
+}
+
+.mission-list {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  margin-top: 20px;
+  max-width: 750px; /* Limit width for readability */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mission-list-item {
+  font-size: 1em;
+  color: var(--text-dark);
+  line-height: 1.7;
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  background-color: var(--bg-card); /* White background for list items */
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-xs);
+  text-align: left; /* Align list item text to left */
+  position: relative; /* For custom bullet point */
+  padding-left: 45px; /* Space for custom bullet */
+}
+
+.mission-list-item:last-child {
+  margin-bottom: 0; /* No margin for the last item */
+}
+
+/* Custom bullet point for mission list */
+.mission-list-item::before {
+  content: '✓'; /* Checkmark icon */
+  color: var(--brand-accent); /* Green checkmark */
+  font-weight: bold;
+  font-size: 1.2em;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .vision-container {
+    margin: 30px auto;
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .vision-heading {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+
+  .vision-text {
+    font-size: 1em;
+  }
+
+  .mission-list-item {
+    font-size: 0.95em;
+    padding: 12px 15px;
+    padding-left: 40px; /* Adjust padding for custom bullet */
+  }
+
+  .mission-list-item::before {
+    left: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vision-container {
+    margin: 20px auto;
+    padding: 15px;
+    gap: 25px;
+  }
+
+  .vision-heading {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+  }
+
+  .vision-text {
+    font-size: 0.95em;
+  }
+
+  .mission-list-item {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+  }
+}

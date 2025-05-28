@@ -5,7 +5,6 @@ const AllNonTeaching = () => {
   const [nonTeachingStaff, setNonTeachingStaff] = useState([]);
   const [editableStaff, setEditableStaff] = useState(null);
 
-  // Fetch all non-teaching staff
   useEffect(() => {
     fetch('http://localhost:8080/api/NonTeaching/all')
       .then(response => response.json())
@@ -13,7 +12,6 @@ const AllNonTeaching = () => {
       .catch((error) => console.error('Error fetching non-teaching staff:', error));
   }, []);
 
-  // Handle PUT request for updating staff details
   const handleUpdate = (id, updatedData) => {
     fetch(`http://localhost:8080/api/NonTeaching/${id}`, {
       method: 'PUT',
@@ -26,12 +24,11 @@ const AllNonTeaching = () => {
       .then((data) => {
         console.log('Updated:', data);
         setNonTeachingStaff(nonTeachingStaff.map(staff => (staff.id === id ? data : staff)));
-        setEditableStaff(null); // Stop editing after update
+        setEditableStaff(null);
       })
       .catch((error) => console.error('Error updating staff:', error));
   };
 
-  // Handle DELETE request
   const handleDelete = (id) => {
     fetch(`http://localhost:8080/api/NonTeaching/${id}`, {
       method: 'DELETE',

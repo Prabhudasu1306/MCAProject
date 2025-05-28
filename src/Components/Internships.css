@@ -1,36 +1,161 @@
-.internship-heading {
-  color: #4CAF50;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 20px;
+/* Variables for consistent styling - Consider placing these in a global CSS file if you have one */
+:root {
+  --primary-color: #0056b3; /* A strong blue */
+  --secondary-color: #007bff; /* A lighter blue for accents */
+  --text-color: #333;
+  --light-text-color: #666;
+  --background-color: #f8f9fa; /* Light grey background */
+  --card-background: #ffffff; /* White background for cards */
+  --border-color: #dee2e6;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  --transition-speed: 0.3s;
+  --border-radius-base: 8px;
 }
 
+/* General Body and Container Styles for Internships Page */
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main container for the Internships component content */
+.internships-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background: var(--card-background);
+  border-radius: var(--border-radius-base);
+  box-shadow: 0 5px 15px var(--shadow-light);
+  overflow: hidden;
+}
+
+/* Heading for the Internship Page */
+.internship-heading {
+  font-size: 2.8em;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Paragraphs describing internships */
+.internships-container p { /* Targeting general paragraphs inside the container */
+  font-size: 1.1em;
+  color: var(--light-text-color);
+  text-align: justify;
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+
+/* Heading for the list of companies */
+.internships-container h3 { /* Targeting the <h3> "List of Internship Companies" */
+  font-size: 2.2em;
+  color: var(--secondary-color);
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+/* Company Grid - Using CSS Grid for a responsive layout */
 .company-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 20px; 
-  padding-left: 0;
-  list-style-type: none; 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Auto-fit columns, min 200px wide */
+  gap: 20px; /* Space between grid items */
+  padding: 20px 0;
 }
 
+/* Individual Company Item Card */
 .company-item {
-  background-color: #f4f4f4;
-  padding: 15px;
-  border-radius: 8px;
+  background-color: #f0f8ff; /* A very light blue background for items */
+  border: 1px solid #cceeff; /* A light blue border */
+  border-radius: var(--border-radius-base); /* Consistent border-radius */
+  padding: 15px 20px;
   text-align: center;
-  font-size: 1.1rem;
-  font-weight: 600;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1.1em;
+  font-weight: 500;
+  color: var(--text-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  transition: transform var(--transition-speed), background-color var(--transition-speed), box-shadow var(--transition-speed);
+  cursor: default; /* Indicates it's not clickable, just informational */
+}
+
+.company-item:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  background-color: #e0f2ff; /* Slightly darker light blue on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .internships-container {
+    margin: 30px auto;
+    padding: 15px;
+  }
+  .internship-heading {
+    font-size: 2.2em;
+  }
+  .internships-container h3 {
+    font-size: 1.8em;
+  }
+  .company-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjust min width for smaller screens */
+    gap: 15px;
+  }
+  .company-item {
+    font-size: 1em;
+    padding: 12px 15px;
+  }
 }
 
 @media (max-width: 768px) {
+  .internships-container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+  .internship-heading {
+    font-size: 1.8em;
+  }
+  .internships-container h3 {
+    font-size: 1.6em;
+  }
   .company-grid {
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Further adjust for tablets */
+    gap: 10px;
   }
 }
 
 @media (max-width: 480px) {
+  .internships-container {
+    margin: 15px auto;
+    padding: 10px;
+  }
+  .internship-heading {
+    font-size: 1.5em;
+  }
+  .internships-container p {
+    font-size: 0.95em;
+  }
+  .internships-container h3 {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+  }
   .company-grid {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr; /* Single column on very small phones */
+    gap: 10px;
+  }
+  .company-item {
+    font-size: 0.9em;
+    padding: 10px 12px;
   }
 }

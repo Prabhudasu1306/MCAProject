@@ -1,10 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Hostel1 from './Hostel1.jpg';
 import Hostel2 from './Hostel2.jpg';
 import Hostel3 from './Hostel3.jpg';
 import './Hostel.css';
 
 const Hostels = () => {
+  const navigate = useNavigate();
+
+  const handleApplyClick = () => {
+    navigate('/registerhostel'); // <--- CHANGED: Navigate to /registerhostel
+  };
+
   return (
     <div className="hostel-container">
       <h1 className="hostel-title">HOSTEL – A HOME AWAY FROM HOME</h1>
@@ -13,6 +20,13 @@ const Hostels = () => {
         “SAFETY” is the prime objective on campus, and the institution is known as “SAFE HEAVEN” especially for girl students.
         All academic and daily needs are within reach, making hostel life pleasant and comfortable. The hostel campus is known as “HOME AWAY FROM HOME”.
       </p>
+
+      {/* Button for applying for hostel */}
+      <div className="apply-hostel-section">
+        <button className="apply-hostel-button" onClick={handleApplyClick}>
+          Apply Now
+        </button>
+      </div>
 
       <h2 className="section-title">Hostel Gents</h2>
       <div className="hostel-images">

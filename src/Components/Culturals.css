@@ -1,0 +1,166 @@
+/* Global Box-sizing for consistency */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Define CSS Custom Properties (Variables) */
+:root {
+  --primary-color: #0056b3; /* Deep blue for headings/accents */
+  --secondary-bg-color: #f8f9fa; /* Light background for the container */
+  --card-bg-color: #ffffff; /* White background for individual performance cards */
+  --text-color: #333;
+  --light-text-color: #6c757d;
+  --border-color: #e0e6ed;
+  --link-color: #007bff; /* Standard blue for links */
+  --link-hover-color: #0056b3;
+  --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --transition-speed: 0.3s ease;
+  --section-padding: 60px;
+}
+
+.culturals-container {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--secondary-bg-color);
+  padding: var(--section-padding) 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+.culturals-container h2 {
+  color: var(--primary-color);
+  font-size: 3em;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.culturals-container > p { /* Targeting the introductory paragraph */
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  font-size: 1.15em;
+  color: var(--light-text-color);
+  padding: 0 15px;
+  line-height: 1.8;
+}
+
+.cultural-events-grid {
+  display: grid; /* Use CSS Grid for a unique layout */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 30px; /* Space between grid items */
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+.cultural-event-item {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes content and link apart */
+  text-align: left; /* Align text within each card */
+}
+
+.cultural-event-item:hover {
+  transform: translateY(-8px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Stronger shadow on hover */
+}
+
+.cultural-event-item h4 {
+  color: var(--primary-color);
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.cultural-event-item p {
+  font-size: 1em;
+  color: var(--text-color);
+  margin-bottom: 15px;
+  flex-grow: 1; /* Allows paragraph to take available space */
+}
+
+.cultural-event-item .video-info {
+  font-size: 0.9em;
+  color: var(--light-text-color);
+  margin-top: 10px;
+}
+
+.cultural-event-item a {
+  display: inline-block; /* Allows padding and margin */
+  background-color: var(--primary-color);
+  color: var(--card-bg-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color var(--transition-speed);
+  margin-top: 15px; /* Space above the button */
+}
+
+.cultural-event-item a:hover {
+  background-color: var(--link-hover-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .culturals-container h2 {
+    font-size: 2.5em;
+  }
+  .culturals-container > p {
+    font-size: 1.05em;
+    margin-bottom: 30px;
+  }
+  .cultural-events-grid {
+    gap: 25px;
+  }
+  .cultural-event-item {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .culturals-container {
+    padding: var(--section-padding) 15px;
+    margin: 20px auto;
+  }
+  .culturals-container h2 {
+    font-size: 2em;
+  }
+  .culturals-events-grid {
+    grid-template-columns: 1fr; /* Stack items vertically on smaller screens */
+    gap: 20px;
+  }
+  .cultural-event-item h4 {
+      font-size: 1.3em;
+  }
+  .cultural-event-item p {
+      font-size: 0.95em;
+  }
+  .cultural-event-item a {
+      padding: 8px 15px;
+      font-size: 0.95em;
+  }
+}
+
+@media (max-width: 480px) {
+  .culturals-container {
+    padding: 30px 10px;
+  }
+  .culturals-container h2 {
+    font-size: 1.8em;
+  }
+  .culturals-container > p {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
+}

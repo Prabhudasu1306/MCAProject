@@ -1,0 +1,124 @@
+/* Variables for consistent styling */
+:root {
+  --primary-color: #0056b3; /* A strong blue */
+  --secondary-color: #007bff; /* A lighter blue for accents */
+  --text-color: #333;
+  --light-text-color: #666;
+  --background-color: #f8f9fa; /* Light grey background */
+  --card-background: #ffffff; /* White background for sections */
+  --border-color: #dee2e6;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  --transition-speed: 0.3s;
+  --border-radius-base: 8px;
+  --padding-base: 20px;
+}
+
+/* General Body and Container Styles */
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.library-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: var(--padding-base);
+  background: var(--card-background);
+  border-radius: var(--border-radius-base);
+  box-shadow: 0 5px 15px var(--shadow-light);
+  overflow: hidden;
+  text-align: center; /* Center aligns block elements like image and heading */
+}
+
+/* Heading Styling */
+.library-heading {
+  font-size: 2.5em; /* Slightly larger for main heading */
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+/* Image Styling */
+.library-image {
+  display: block; /* Ensures it takes up its own line and margin auto works */
+  max-width: 100%; /* Ensures responsiveness */
+  height: auto; /* Maintains aspect ratio */
+  margin: 30px auto; /* Center the image with vertical spacing */
+  border-radius: var(--border-radius-base);
+  box-shadow: 0 4px 12px var(--shadow-medium);
+  transition: transform var(--transition-speed);
+}
+
+.library-image:hover {
+  transform: scale(1.01); /* Subtle zoom effect on hover */
+}
+
+/* Paragraph Styling */
+.library-paragraph {
+  font-size: 1.1em;
+  color: var(--light-text-color);
+  line-height: 1.7;
+  margin-bottom: 25px; /* Space between paragraphs */
+  text-align: justify; /* Aligns text neatly */
+  padding: 0 10px; /* Small horizontal padding to avoid text touching edges on smaller screens */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .library-container {
+    margin: 30px auto;
+    padding: 15px;
+  }
+  .library-heading {
+    font-size: 2em;
+  }
+  .library-image {
+    margin: 20px auto;
+  }
+  .library-paragraph {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .library-container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+  .library-heading {
+    font-size: 1.8em;
+  }
+  .library-paragraph {
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 480px) {
+  .library-container {
+    margin: 15px auto;
+    padding: 10px;
+  }
+  .library-heading {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  .library-image {
+    margin: 15px auto;
+  }
+  .library-paragraph {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    padding: 0 5px;
+  }
+}

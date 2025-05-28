@@ -1,0 +1,128 @@
+/* General container for the page */
+.add-course-container {
+  max-width: 800px; /* Limit width for better readability */
+}
+
+/* Card styling */
+.add-course-card {
+  border: none;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft shadow for depth */
+}
+
+.add-course-card .card-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #004085; /* Dark blue for main title */
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.add-course-card .card-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #007bff; /* Primary blue underline */
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Form labels */
+.form-label {
+  font-weight: 600;
+  color: #343a40; /* Dark text */
+  margin-bottom: 0.5rem;
+}
+
+/* Form input fields */
+.form-control {
+  border-radius: 8px; /* Slightly rounded corners */
+  padding: 0.75rem 1rem;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #80bdff; /* Blue border on focus */
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); /* Subtle blue shadow on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Modern Button Styling */
+.modern-button {
+  padding: 12px 25px;
+  border-radius: 50px; /* Pill-shaped buttons */
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  min-width: 120px; /* Ensure consistent button width */
+}
+
+.submit-button {
+  background-color: #007bff; /* Primary blue */
+  border-color: #007bff;
+}
+
+.submit-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  border-color: #0056b3;
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.clear-button {
+  background-color: #6c757d; /* Grey for clear/cancel */
+  border-color: #6c757d;
+  color: white;
+}
+
+.clear-button:hover {
+  background-color: #5a6268; /* Darker grey on hover */
+  border-color: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Alert messages */
+.alert {
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .add-course-container {
+    padding: 0 15px; /* Add some padding on smaller screens */
+  }
+  .add-course-card {
+    padding: 20px;
+  }
+  .add-course-card .card-title {
+    font-size: 1.8rem;
+  }
+  .modern-button {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+    min-width: unset; /* Allow buttons to shrink */
+  }
+}
+
+@media (max-width: 576px) {
+  .add-course-card .card-title {
+    font-size: 1.5rem;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .d-flex.gap-3 {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px !important;
+  }
+  .modern-button {
+    width: 100%; /* Full width buttons */
+  }
+}

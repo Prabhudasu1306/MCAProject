@@ -1,0 +1,198 @@
+/* Profile.css */
+
+/* --- Modern Color Palette & Design Variables --- */
+:root {
+  /* Primary Brand Colors */
+  --brand-primary: #0056b3;     /* Deep Blue for main actions/headings */
+  --brand-secondary: #007bff;   /* Brighter Blue for links, subtle accents */
+  --brand-accent: #28a745;      /* Green for success/positive feedback */
+  --brand-danger: #dc3545;      /* Red for errors/alerts */
+
+  /* Text Colors */
+  --text-dark: #2c3e50;        /* Very dark grey-blue for primary text */
+  --text-medium: #5a6a7a;      /* Medium grey for secondary text, labels */
+  --text-light: #90a4ae;       /* Light grey for hints, disabled states */
+  --text-white: #ffffff;       /* Pure white for text on dark backgrounds */
+
+  /* Background Colors */
+  --bg-page: #f8f9fa;         /* Very light grey for the overall page background */
+  --bg-card: #ffffff;         /* White for prominent cards/forms */
+
+  /* Border Colors */
+  --border-light: #e6e9ee;     /* Very light grey for subtle borders */
+  --border-medium: #ced4da;    /* Standard grey for input borders */
+
+  /* Shadows */
+  --shadow-xs: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px; /* Extra small shadow */
+  --shadow-sm: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; /* Small shadow */
+  --shadow-md: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; /* Medium shadow */
+
+  /* Transitions */
+  --transition-fast: all 0.15s ease-out;
+  --transition-medium: all 0.3s ease-out;
+
+  /* Border Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Font Family */
+  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+/* Global body styles for context (optional, if not in index.css) */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.profile-container {
+  max-width: 600px; /* Moderate width for a profile card */
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md); /* Subtle shadow for depth */
+  text-align: center;
+}
+
+.profile-heading {
+  font-family: var(--font-heading);
+  font-size: 2.5em;
+  color: var(--brand-primary);
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.profile-info {
+  text-align: left;
+  margin-bottom: 35px;
+  padding: 20px;
+  background-color: var(--bg-page); /* Slightly different background for info section */
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.profile-info p {
+  font-size: 1.1em;
+  color: var(--text-medium);
+  margin-bottom: 10px;
+}
+
+.profile-info p strong {
+  color: var(--text-dark);
+  margin-right: 8px;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: center; /* Center the buttons */
+  gap: 20px; /* Space between buttons */
+}
+
+.edit-profile-button,
+.delete-account-button,
+.login-link-button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-xs);
+  text-decoration: none; /* For Link component */
+  display: inline-flex; /* For Link component to behave like button */
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-profile-button,
+.login-link-button {
+  background-color: var(--brand-secondary);
+  color: var(--text-white);
+}
+
+.edit-profile-button:hover,
+.login-link-button:hover {
+  background-color: #005fa3;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.delete-account-button {
+  background-color: var(--brand-danger);
+  color: var(--text-white);
+}
+
+.delete-account-button:hover {
+  background-color: #c82333; /* Darker red on hover */
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.no-user-message {
+  font-size: 1.2em;
+  color: var(--text-medium);
+  margin-top: 50px;
+  padding: 20px;
+  background-color: var(--bg-page);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .profile-container {
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: var(--radius-md);
+  }
+  .profile-heading {
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+  .profile-info {
+    padding: 15px;
+    margin-bottom: 25px;
+  }
+  .profile-info p {
+    font-size: 1em;
+  }
+  .profile-actions {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 15px;
+  }
+  .edit-profile-button,
+  .delete-account-button,
+  .login-link-button {
+    width: 100%; /* Full width buttons */
+    padding: 10px 15px;
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-container {
+    padding: 15px;
+  }
+  .profile-heading {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+  .profile-info {
+    padding: 10px;
+  }
+  .profile-info p {
+    font-size: 0.9em;
+  }
+}

@@ -1,0 +1,377 @@
+/* /* General Body and Container Styles */
+body {
+  font-family: 'Poppins', sans-serif; /* A modern, readable font */
+  background-color: #f8f9fa; /* Light background */
+  color: #343a40; /* Darker text for readability */
+}
+
+.home-page-container {
+  overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #004d99; /* Deep blue */
+  margin-bottom: 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #007bff; /* Primary blue underline */
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.sub-section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #0056b3;
+  margin-bottom: 1.5rem;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 600px; /* Adjust height as needed */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+.hero-section h1 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.hero-section .highlight-text {
+  color: #ffd700; /* Gold highlight */
+}
+
+.hero-section p {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.hero-btn {
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  background-color: #007bff; /* Primary blue */
+  border-color: #007bff;
+}
+
+.hero-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  border-color: #0056b3;
+  transform: translateY(-3px); /* Subtle lift effect */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* About Section */
+.about-section {
+  padding: 40px 0;
+  background-color: #ffffff;
+}
+
+.about-image {
+  max-height: 400px; /* Control image size */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Soft shadow */
+}
+
+.text-blue {
+  color: #0056b3;
+}
+
+.text-darkblue {
+  color: #343a40;
+}
+
+/* Why Choose Us Section (Cards) */
+.why-choose-us-section {
+  background-color: #f0f8ff; /* Light blue background */
+  padding: 60px 0;
+  box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.choice-card {
+  border: none;
+  border-radius: 15px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.choice-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.choice-card .icon-blue {
+  color: #007bff; /* Blue for icons */
+  margin-bottom: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.choice-card:hover .icon-blue {
+  transform: scale(1.1);
+}
+
+.choice-card .card-title {
+  font-weight: 700;
+  color: #004d99;
+  margin-bottom: 10px;
+}
+
+.choice-card .card-text {
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+
+/* Campus Life Section */
+.campus-life-section {
+  background-color: #ffffff;
+  padding: 60px 0;
+}
+
+.campus-image {
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Call to Action Buttons (General) */
+.action-button {
+  border-radius: 50px;
+  padding: 10px 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary.action-button {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.btn-primary.action-button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary.action-button {
+  border-color: #007bff;
+  color: #007bff;
+}
+.btn-outline-primary.action-button:hover {
+  background-color: #007bff;
+  color: white;
+  transform: translateY(-2px);
+}
+
+
+/* Admission CTA Section */
+.admission-cta-section {
+  background: linear-gradient(135deg, #007bff 0%, #004d99 100%); /* Blue gradient */
+  padding: 80px 0;
+  border-radius: 15px;
+  margin-bottom: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.admission-cta-section h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.admission-cta-section p {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+}
+
+.cta-button {
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Quick Stats Section */
+.quick-stats-section {
+  background-color: #f8f9fa;
+  padding: 40px 0;
+}
+
+.stat-item {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; /* Ensure uniform height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #28a745; /* Green for numbers */
+  margin-bottom: 5px;
+}
+
+.stat-text {
+  font-size: 1.1rem;
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+/* Custom Text Colors (if not covered by Bootstrap) */
+.text-purple {
+  color: #6f42c1;
+}
+
+.text-green {
+  color: #28a745;
+}
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+/* Animations (if using Animate.css) */
+/* Add animate.css link to your public/index.html or import it if you want these */
+/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> */
+.animate__animated {
+  animation-duration: 1s; /* Default duration */
+  animation-fill-mode: both; /* Keep last frame of animation */
+}
+
+/* Specific animations for hero section */
+.animate__fadeInDown {
+  animation-name: fadeInDown;
+}
+.animate__fadeInUp {
+  animation-name: fadeInUp;
+}
+.animate__zoomIn {
+  animation-name: zoomIn;
+}
+.animate__fadeIn {
+  animation-name: fadeIn;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+  .hero-section {
+    height: 500px;
+  }
+  .hero-section h1 {
+    font-size: 3.5rem;
+  }
+  .hero-section p {
+    font-size: 1.2rem;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .sub-section-title {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 400px;
+    padding: 20px;
+  }
+  .hero-section h1 {
+    font-size: 2.8rem;
+  }
+  .hero-section p {
+    font-size: 1rem;
+  }
+  .hero-btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .sub-section-title {
+    font-size: 1.4rem;
+  }
+  .choice-card, .stat-item {
+    margin-bottom: 20px;
+  }
+  .about-section .row, .campus-life-section .row {
+    flex-direction: column; /* Stack columns */
+  }
+  .campus-life-section .order-md-2 {
+    order: -1; /* Reverse order for image on mobile */
+  }
+  .cta-button {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    height: 350px;
+  }
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  .hero-section p {
+    font-size: 0.9rem;
+  }
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .sub-section-title {
+    font-size: 1.2rem;
+  }
+  .stat-number {
+    font-size: 2rem;
+  }
+  .stat-text {
+    font-size: 0.9rem;
+  }
+}

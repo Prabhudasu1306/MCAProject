@@ -1,0 +1,195 @@
+/* Global Box-sizing for consistency */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Define CSS Custom Properties (Variables) */
+:root {
+  --primary-color: #0056b3; /* Deep blue for accents */
+  --secondary-bg-color: #f8f9fa; /* Light background for the container */
+  --card-bg-color: #ffffff; /* White background for individual placement cards */
+  --text-color: #333;
+  --light-text-color: #6c757d;
+  --border-color: #e0e6ed;
+  --button-color: #007bff; /* Blue for primary actions */
+  --button-hover-color: #0056b3;
+  --box-shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --box-shadow-heavy: 0 8px 25px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s ease;
+  --section-padding: 60px;
+}
+
+.placement-info-container {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--secondary-bg-color);
+  padding: var(--section-padding) 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-heavy);
+  text-align: center;
+}
+
+.placement-info-container h2 {
+  color: var(--primary-color);
+  font-size: 2.8em;
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+.placement-info-container .intro-text {
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+  font-size: 1.1em;
+  color: var(--light-text-color);
+  padding: 0 15px;
+  line-height: 1.7;
+}
+
+.no-placements-message {
+  font-size: 1.2em;
+  color: var(--light-text-color);
+  margin-top: 30px;
+  padding: 20px;
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow-light);
+}
+
+.placement-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted min-width for better fit */
+  gap: 30px; /* Space between cards */
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+.placement-card {
+  border: 1px solid var(--border-color);
+  padding: 25px;
+  border-radius: 10px;
+  background-color: var(--card-bg-color);
+  box-shadow: var(--box-shadow-light);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align text to the left within the card */
+  text-align: left; /* Ensure text alignment */
+}
+
+.placement-card:hover {
+  transform: translateY(-8px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Stronger shadow */
+}
+
+.placement-card h3 {
+  color: var(--primary-color);
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  font-weight: 600;
+  width: 100%; /* Ensure heading takes full width for text-align */
+}
+
+.placement-card p {
+  font-size: 1.05em;
+  color: var(--text-color);
+  margin-bottom: 8px;
+}
+
+.placement-card strong {
+  color: var(--primary-color);
+}
+
+.placement-card button {
+  padding: 10px 20px;
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color var(--transition-speed);
+  margin-top: 15px; /* Space above the button */
+  align-self: flex-end; /* Align button to the right within the card */
+}
+
+.placement-card button:hover {
+  background-color: var(--button-hover-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .placement-info-container h2 {
+    font-size: 2.2em;
+  }
+  .placement-info-container .intro-text {
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
+  .placement-cards-grid {
+    gap: 25px;
+  }
+  .placement-card {
+    padding: 20px;
+  }
+  .placement-card h3 {
+    font-size: 1.6em;
+  }
+  .placement-card p {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .placement-info-container {
+    padding: var(--section-padding) 15px;
+    margin: 20px auto;
+  }
+  .placement-info-container h2 {
+    font-size: 1.8em;
+  }
+  .placement-cards-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+    gap: 20px;
+  }
+  .placement-card {
+    align-items: center; /* Center content within the card on mobile */
+    text-align: center;
+  }
+  .placement-card h3 {
+    font-size: 1.5em;
+  }
+  .placement-card button {
+    align-self: center; /* Center button on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .placement-info-container {
+    padding: 30px 10px;
+  }
+  .placement-info-container h2 {
+    font-size: 1.6em;
+  }
+  .placement-info-container .intro-text {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
+  .placement-card {
+    padding: 15px;
+  }
+  .placement-card h3 {
+    font-size: 1.3em;
+  }
+  .placement-card p {
+    font-size: 0.9em;
+  }
+  .placement-card button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+}

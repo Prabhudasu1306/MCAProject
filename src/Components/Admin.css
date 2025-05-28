@@ -1,33 +1,92 @@
-.admin-dashboard {
-    padding: 20px;
+.admin-dashboard-container {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #004085;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.dashboard-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background-color: #007bff;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.data-summary-card {
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.data-summary-card:hover {
+  transform: translateY(-5px);
+}
+
+.data-summary-card .card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #6c757d;
+  margin-bottom: 10px;
+}
+
+.data-summary-card .card-text {
+  font-size: 2.5rem; /* Larger font for the count */
+  color: #007bff; /* Primary color for counts */
+  font-weight: 700;
+}
+
+.chart-card {
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+}
+
+.chart-card .card-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #004085;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-title {
+    font-size: 2rem;
   }
-  
-  h2 {
-    text-align: center;
+  .data-summary-card .card-text {
+    font-size: 2rem;
   }
-  
-  .staff-section {
-    margin-top: 20px;
+  .chart-card {
+    padding: 15px;
   }
-  
-  .staff-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+}
+
+@media (max-width: 576px) {
+  .dashboard-title {
+    font-size: 1.8rem;
   }
-  
-  .staff-table th,
-  .staff-table td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: left;
+  .data-summary-card {
+    margin-bottom: 15px;
   }
-  
-  .staff-table th {
-    background-color: #f2f2f2;
+  .data-summary-card .card-title {
+    font-size: 1rem;
   }
-  
-  .staff-table td {
-    background-color: #fafafa;
+  .data-summary-card .card-text {
+    font-size: 1.8rem;
   }
-  
+}

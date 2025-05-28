@@ -1,74 +1,200 @@
-/* Container for the entire training section */
-.training-container {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  background-color: #f9f9f9;
+/* Training.css */
+
+/* --- Modern Color Palette & Design Variables --- */
+:root {
+  /* Primary Brand Colors */
+  --brand-primary: #0056b3;     /* Deep Blue for main actions/headings */
+  --brand-secondary: #007bff;   /* Brighter Blue for links, subtle accents */
+  --brand-accent: #28a745;      /* Green for success/positive feedback */
+  --brand-danger: #dc3545;      /* Red for errors/alerts */
+
+  /* Text Colors */
+  --text-dark: #2c3e50;        /* Very dark grey-blue for primary text */
+  --text-medium: #5a6a7a;      /* Medium grey for secondary text, labels */
+  --text-light: #90a4ae;       /* Light grey for hints, disabled states */
+  --text-white: #ffffff;       /* Pure white for text on dark backgrounds */
+
+  /* Background Colors */
+  --bg-page: #f8f9fa;         /* Very light grey for the overall page background */
+  --bg-card: #ffffff;         /* White for prominent cards/forms */
+
+  /* Border Colors */
+  --border-light: #e6e9ee;     /* Very light grey for subtle borders */
+  --border-medium: #ced4da;    /* Standard grey for input borders */
+
+  /* Shadows */
+  --shadow-xs: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px; /* Extra small shadow */
+  --shadow-sm: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; /* Small shadow */
+  --shadow-md: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; /* Medium shadow */
+
+  /* Transitions */
+  --transition-fast: all 0.15s ease-out;
+  --transition-medium: all 0.3s ease-out;
+
+  /* Border Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Font Family */
+  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
 }
 
-/* Section styling */
-.training-section {
-  margin-bottom: 40px;
-  background-color: #ffffff;
+/* Global body styles for context (optional, if not in index.css) */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.training-container {
+  max-width: 960px; /* Standard content width */
+  margin: 40px auto;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Space between sections */
+}
+
+.training-section {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm); /* Slightly lighter shadow for individual sections */
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content within section */
+  text-align: center; /* Center text within section */
 }
 
 .training-section h2 {
-  font-size: 2rem;
-  color: #333;
+  font-family: var(--font-heading);
+  font-size: 2.2em;
+  color: var(--brand-primary);
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-weight: 700;
   text-align: center;
+  border-bottom: 3px solid var(--brand-secondary);
+  padding-bottom: 10px;
+  display: inline-block; /* Makes border-bottom only as wide as text */
+}
+
+.training-section h3 { /* If you add h3s later */
+  font-family: var(--font-heading);
+  font-size: 1.8em;
+  color: var(--brand-primary);
+  margin-top: 20px;
   margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .training-section p {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.6;
-  text-align: justify;
+  font-size: 1em;
+  color: var(--text-medium);
+  line-height: 1.7;
   margin-bottom: 20px;
+  max-width: 700px; /* Constrain paragraph width for readability */
 }
 
-/* Styling for images */
 .training-section img {
-  display: block;
-  margin: 20px auto;
-  width: 80%;
+  max-width: 100%; /* Ensure images are responsive */
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-md); /* Rounded corners for images */
+  margin: 20px 0; /* Spacing above and below images */
+  box-shadow: var(--shadow-xs); /* Subtle shadow for images */
 }
 
-/* List styling inside Training Outcomes */
 .training-outcome-list {
-  list-style-type: disc;
-  padding-left: 20px;
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap */
+  justify-content: center; /* Center items */
+  gap: 20px; /* Space between list items */
+  max-width: 800px; /* Constrain list width */
 }
 
 .training-outcome-list li {
-  margin-bottom: 10px;
-  font-size: 1.1rem;
+  background-color: var(--bg-page); /* Lighter background for list items */
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  flex: 1 1 calc(33% - 40px); /* Approx 3 items per row on large screens */
+  min-width: 250px; /* Minimum width for each item */
+  box-shadow: var(--shadow-xs);
+  text-align: left; /* Align text within list item */
+  font-size: 0.95em;
+  color: var(--text-dark);
+  line-height: 1.6;
 }
 
-/* Styling for list highlights */
 .training-outcome-list li strong {
-  color: #007bff;
+  color: var(--brand-primary);
+  font-size: 1.1em;
+  display: block; /* Make the strong text a block for spacing */
+  margin-bottom: 8px;
 }
 
-/* Responsive styles */
+/* Specific styling for value-added skills paragraph */
+.training-section p strong {
+  color: var(--brand-primary); /* Bold the service names */
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .training-section img {
-    width: 100%;
+  .training-container {
+    padding: 15px;
+    gap: 25px;
+  }
+
+  .training-section {
+    padding: 25px;
   }
 
   .training-section h2 {
-    font-size: 1.5rem;
+    font-size: 1.8em;
+    margin-bottom: 20px;
   }
 
-  .training-section p,
+  .training-section p {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+  }
+
+  .training-outcome-list {
+    flex-direction: column; /* Stack list items vertically on smaller screens */
+    align-items: center;
+    gap: 15px;
+  }
+
   .training-outcome-list li {
-    font-size: 0.95rem;
+    flex: 1 1 100%; /* Full width on smaller screens */
+    max-width: 400px; /* Max width for stacked items */
+  }
+}
+
+@media (max-width: 480px) {
+  .training-container {
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .training-section {
+    padding: 20px;
+  }
+
+  .training-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .training-section p {
+    font-size: 0.9em;
   }
 }

@@ -1,16 +1,26 @@
 import React from 'react';
-import './Internships.css';
+import './Internships.css'; // Make sure your CSS file is correctly linked
 
 const Internships = () => {
   return (
-    <div>
-      <h2 className="internship-heading">Internship Opportunities at KLN University</h2>
-      <p>
-        KLN University allows internships to be taken by students during their pre-final year and final year in both Core and IT fields. Internships help students gain exposure in a specific area and obtain real-time experience of the best practices followed in industries. The opportunities for internships are provided through the departments and also by the Placement Cell as part of campus recruitment. Below is a list of some companies where our students are currently doing internships.
+    <div className="internships-container">
+      <h2 className="internship-heading">Empowering Futures: Comprehensive Internship Programs at THOP University</h2>
+
+      <p className="internship-intro-text">
+        At THOP University, we recognize that practical experience is paramount to a successful career. Our robust internship programs are thoughtfully designed to immerse students in real-world industry environments, bridging the gap between theoretical knowledge gained in classrooms and the practical application demanded by leading companies. These invaluable opportunities are primarily offered to our pre-final year and final year students, enabling them to explore various facets of both core engineering disciplines and cutting-edge IT fields.
       </p>
 
-      <h3>List of Internship Companies</h3>
+      <p className="internship-benefits-text">
+        An internship at THOP University is more than just work experience; it's a transformative journey. Students gain direct exposure to industry best practices, innovative technologies, and professional work ethics. This hands-on involvement allows them to apply their academic learning, develop crucial problem-solving skills, enhance their communication abilities, and build a professional network that can be instrumental for their future careers. Many of our students have even received pre-placement offers based on their outstanding internship performance.
+      </p>
+
+      <p className="internship-facilitation-text">
+        Our commitment to student success is reflected in how we facilitate these opportunities. Internship placements are meticulously coordinated through strong collaborations between academic departments and our dedicated Placement Cell. We actively engage with a wide array of industry partners, ensuring a diverse range of opportunities from multinational corporations to innovative startups, covering various domains. This strategic approach ensures that our students are exposed to the dynamic demands of the global workforce, preparing them to excel in their chosen fields.
+      </p>
+
+      <h3 className="companies-list-title">Our Esteemed Internship Partners</h3>
       <div className="company-grid">
+        {/* Your existing list of companies */}
         <div className="company-item">Accenture</div>
         <div className="company-item">Renault Nissan</div>
         <div className="company-item">Cognizant</div>

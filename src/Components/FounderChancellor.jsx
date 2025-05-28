@@ -1,28 +1,50 @@
 import React from 'react';
-import './FounderChancellor.css';
+import './FounderChancellor.css'; // This import is correct
 import Founder from './Founder.jpg';
+import Founder1 from './Founder1.jpg';
+import Founder2 from './Founder2.jpeg';
 
 const FounderChancellor = () => {
   return (
     <div className="founder-container">
-      <img
-        src={Founder}
-        alt="RGV Profile"
-        className="founder-image"
-      />
-      <h2 className="founder-name">Ram Gopal Varma (RGV)</h2>
-      <p className="founder-description">
-        Ram Gopal Varma, also known as RGV, is a renowned Indian film director, screenwriter, and producer
-        known for his work in Telugu and Hindi cinema. He is widely regarded for his innovative storytelling,
-        technical excellence, and bold filmmaking style. RGV made his directorial debut with the Telugu blockbuster
-        <i> Shiva </i> in 1989, which revolutionized Indian cinema with its raw depiction of college politics and violence.
-      </p>
-      <p className="founder-description">
-        Over the years, he has directed iconic films like <i> Satya, Company, Rangeela, </i> and <i> Sarkar </i>,
-        influencing generations of filmmakers. Known for breaking cinematic norms and pushing creative boundaries,
-        RGV has carved a niche for himself as a fearless storyteller. In addition to films, he is also an outspoken personality
-        and author, often engaging audiences with his unfiltered views on cinema and society.
-      </p>
+      <h2 className="founder-title">Founder & Chancellor</h2>
+
+      <div className="founder-profile">
+        <img src={Founder} alt="Ram Gopal Varma" className="founder-image" />
+        <div className="founder-text">
+          <h3 className="founder-name">Ram Gopal Varma (RGV)</h3>
+          <p>
+            Ram Gopal Varma, also known as RGV, is a celebrated Indian film director, screenwriter, and producer who
+            has left an indelible mark on both Telugu and Hindi cinema. He gained fame with his groundbreaking debut
+            film <i>Shiva</i> (1989), which redefined Indian filmmaking with its gritty portrayal of student politics.
+          </p>
+        </div>
+      </div>
+
+      <div className="founder-profile">
+        <img src={Founder1} alt="RGV Filmmaking" className="founder-image" />
+        <div className="founder-text">
+          <h3 className="founder-subheading">Film Career</h3>
+          <p>
+            RGV has directed iconic films like <i>Satya</i>, <i>Company</i>, <i>Rangeela</i>, and <i>Sarkar</i>,
+            earning a reputation as a bold, experimental filmmaker. His style blends realism with raw emotion and
+            has influenced a generation of directors across India. He is known for challenging traditional narrative structures and exploring dark, unconventional themes.
+          </p>
+        </div>
+      </div>
+
+      <div className="founder-profile">
+        <img src={Founder2} alt="Thop University" className="founder-image" />
+        <div className="founder-text">
+          <h3 className="founder-subheading">Founder of THE THOP UNIVERSITY</h3>
+          <p>
+            Ram Gopal Varma is the visionary founder of <strong>THE THOP UNIVERSITY</strong>, an institution rooted in
+            creativity, innovation, and excellence. Inspired by his journey through storytelling and breaking barriers,
+            the university aims to shape future leaders in arts, technology, and entrepreneurship. His leadership
+            reflects a deep commitment to reimagining education in India and beyond.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

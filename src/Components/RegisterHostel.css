@@ -1,0 +1,258 @@
+/* RegisterHostel.css */
+
+/* --- Modern Color Palette & Design Variables --- */
+:root {
+  /* Primary Brand Colors */
+  --brand-primary: #0056b3;     /* Deep Blue for main actions/headings */
+  --brand-secondary: #007bff;   /* Brighter Blue for links, subtle accents */
+  --brand-accent: #28a745;      /* Green for success/positive feedback */
+  --brand-danger: #dc3545;      /* Red for errors/alerts */
+
+  /* Text Colors */
+  --text-dark: #2c3e50;        /* Very dark grey-blue for primary text */
+  --text-medium: #5a6a7a;      /* Medium grey for secondary text, labels */
+  --text-light: #90a4ae;       /* Light grey for hints, disabled states */
+  --text-white: #ffffff;       /* Pure white for text on dark backgrounds */
+
+  /* Background Colors */
+  --bg-page: #f8f9fa;         /* Very light grey for the overall page background */
+  --bg-card: #ffffff;         /* White for prominent cards/forms */
+
+  /* Border Colors */
+  --border-light: #e6e9ee;     /* Very light grey for subtle borders */
+  --border-medium: #ced4da;    /* Standard grey for input borders */
+
+  /* Shadows */
+  --shadow-xs: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px; /* Extra small shadow */
+  --shadow-sm: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; /* Small shadow */
+  --shadow-md: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; /* Medium shadow */
+
+  /* Transitions */
+  --transition-fast: all 0.15s ease-out;
+  --transition-medium: all 0.3s ease-out;
+
+  /* Border Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Font Family */
+  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+/* Global body styles for context (optional, if not in index.css) */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.register-hostel-container {
+  max-width: 800px; /* Suitable width for a multi-column form */
+  margin: 40px auto;
+  padding: 20px; /* Padding outside the card */
+}
+
+.register-hostel-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md); /* Consistent card shadow */
+  padding: 30px; /* Inner padding for the card */
+}
+
+.register-hostel-heading {
+  font-family: var(--font-heading);
+  font-size: 2.2em;
+  color: var(--brand-primary);
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hostel-form-message {
+  margin-bottom: 25px;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  text-align: center;
+  box-shadow: var(--shadow-xs);
+  opacity: 1;
+  transition: opacity var(--transition-medium);
+}
+
+.hostel-form-message.success {
+  background-color: #d4edda; /* Light green */
+  color: var(--brand-accent); /* Dark green text */
+  border: 1px solid #c3e6cb;
+}
+
+.hostel-form-message.error {
+  background-color: #f8d7da; /* Light red */
+  color: var(--brand-danger); /* Dark red text */
+  border: 1px solid #f5c6cb;
+}
+
+
+.hostel-registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Space between form sections */
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+  gap: 20px; /* Space between grid items */
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-medium);
+  font-size: 0.95em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  font-size: 1em;
+  color: var(--text-dark);
+  transition: var(--transition-fast);
+  box-sizing: border-box; /* Include padding in width */
+  background-color: var(--bg-card); /* Ensure white background for inputs/selects */
+}
+
+.form-group select {
+  /* Custom arrow for select dropdowns */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2C197.989L146.205%2C57.194c-5.325-5.325-13.974-5.325-19.299%2C0L5.195%2C197.989c-5.325%2C5.325-5.325%2C13.975%2C0%2C19.3s13.974%2C5.325%2C19.299%2C0L146.205%2C86.688l121.706%2C121.706c5.325%2C5.325%2C13.974%2C5.325%2C19.299%2C0C292.325%2C211.964%2C292.325%2C203.314%2C287%2C197.989z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 0.8em;
+  padding-right: 30px; /* Space for the arrow */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-secondary);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 80px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1; /* Make this item span all columns */
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center; /* Center buttons */
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.submit-button,
+.cancel-button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-xs);
+}
+
+.submit-button {
+  background-color: var(--brand-primary);
+  color: var(--text-white);
+}
+
+.submit-button:hover {
+  background-color: #004085;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.cancel-button {
+  background-color: var(--text-light);
+  color: var(--text-dark);
+}
+
+.cancel-button:hover {
+  background-color: #78909c;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .register-hostel-container {
+    padding: 15px;
+  }
+  .register-hostel-card {
+    padding: 20px;
+  }
+  .register-hostel-heading {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+  }
+  .form-grid {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    gap: 15px;
+  }
+  .form-group.full-width {
+    grid-column: auto; /* Reset full-width on mobile to stack */
+  }
+  .form-actions {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px;
+  }
+  .submit-button,
+  .cancel-button {
+    width: 100%; /* Full width buttons on mobile */
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px 12px;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-hostel-card {
+    padding: 15px;
+  }
+  .register-hostel-heading {
+    font-size: 1.6em;
+  }
+  .hostel-form-message {
+    font-size: 0.9em;
+    padding: 10px 15px;
+  }
+}

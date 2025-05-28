@@ -1,0 +1,228 @@
+/* PlacedStudentsList.css */
+
+/* --- Modern Color Palette & Design Variables --- */
+/* Re-using variables for consistency across your application */
+:root {
+  /* Primary Brand Colors */
+  --brand-primary: #0056b3;     /* Deep Blue for main actions/headings */
+  --brand-secondary: #007bff;   /* Brighter Blue for links, subtle accents */
+  --brand-accent: #28a745;      /* Green for success/positive feedback */
+  --brand-danger: #dc3545;      /* Red for errors/alerts */
+
+  /* Text Colors */
+  --text-dark: #2c3e50;        /* Very dark grey-blue for primary text */
+  --text-medium: #5a6a7a;      /* Medium grey for secondary text, labels */
+  --text-light: #90a4ae;       /* Light grey for hints, disabled states */
+  --text-white: #ffffff;       /* Pure white for text on dark backgrounds */
+
+  /* Background Colors */
+  --bg-page: #f8f9fa;         /* Very light grey for the overall page background */
+  --bg-card: #ffffff;         /* White for prominent cards/forms */
+  --bg-table-header: #e9eff5;  /* Light blue-grey for table headers */
+  --bg-table-row-even: #f2f5f9; /* Slightly darker for even rows */
+  --bg-table-row-odd: #ffffff;  /* White for odd rows */
+
+  /* Border Colors */
+  --border-light: #e0e6ed;     /* Light border for table cells */
+  --border-medium: #ced4da;    /* Standard grey for input borders */
+
+  /* Shadows */
+  --shadow-xs: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px; /* Extra small shadow */
+  --shadow-sm: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; /* Small shadow */
+  --shadow-md: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; /* Medium shadow */
+
+  /* Transitions */
+  --transition-fast: all 0.15s ease-out;
+  --transition-medium: all 0.3s ease-out;
+
+  /* Border Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Font Family */
+  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+/* Global body styles for context, though often defined once in index.css */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.students-container {
+  max-width: 1000px; /* Limit width for better readability on large screens */
+  margin: 40px auto; /* Center the container with vertical spacing */
+  padding: 30px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md); /* Subtle shadow for depth */
+  text-align: center;
+}
+
+.students-container h2 {
+  font-family: var(--font-heading);
+  font-size: 2.5em;
+  color: var(--brand-primary);
+  margin-bottom: 35px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Style for when no students are found */
+.no-students-message {
+  color: var(--text-medium);
+  font-size: 1.1em;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: var(--bg-table-header);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+}
+
+table {
+  width: 100%;
+  border-collapse: separate; /* Allows border-radius on cells */
+  border-spacing: 0; /* Remove default spacing */
+  margin-top: 20px;
+  overflow: hidden; /* Ensures rounded corners apply correctly */
+  border-radius: var(--radius-md); /* Overall table rounded corners */
+  box-shadow: var(--shadow-xs); /* Light shadow for the table itself */
+  border: 1px solid var(--border-light); /* Light border around the table */
+}
+
+thead {
+  background-color: var(--bg-table-header);
+  border-bottom: 1px solid var(--border-light);
+}
+
+th {
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 1.05em;
+  color: var(--text-dark);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+th:first-child {
+  border-top-left-radius: var(--radius-md); /* Top-left corner for first header */
+}
+
+th:last-child {
+  border-top-right-radius: var(--radius-md); /* Top-right corner for last header */
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--bg-table-row-even); /* Zebra stripping for readability */
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--bg-table-row-odd);
+}
+
+tbody tr:hover {
+  background-color: #e0f2f7; /* Light highlight on hover */
+  transition: background-color var(--transition-fast);
+}
+
+td {
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 0.95em;
+  color: var(--text-medium);
+  border-bottom: 1px solid var(--border-light); /* Cell borders */
+}
+
+/* Remove bottom border for the last row's cells */
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Specific styling for last row corners if needed */
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: var(--radius-md);
+}
+
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: var(--radius-md);
+}
+
+
+/* --- Responsive Table --- */
+@media (max-width: 768px) {
+  .students-container {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: var(--radius-md);
+  }
+
+  .students-container h2 {
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block; /* Make table elements behave like block elements */
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px; /* Hide table headers visually */
+  }
+
+  tr {
+    border: 1px solid var(--border-light);
+    margin-bottom: 15px;
+    border-radius: var(--radius-md);
+    overflow: hidden; /* Ensure rounded corners are visible */
+  }
+
+  td {
+    border: none; /* Remove individual cell borders */
+    border-bottom: 1px solid var(--border-light); /* Add border between "rows" within each student block */
+    position: relative;
+    padding-left: 50%; /* Space for the "label" before content */
+    text-align: right;
+    font-size: 1em;
+  }
+
+  td:last-child {
+    border-bottom: none; /* Remove last border */
+  }
+
+  td:before {
+    content: attr(data-label); /* Use data-label for content before cell */
+    position: absolute;
+    left: 0;
+    width: 45%; /* Width for the label */
+    padding-left: 10px;
+    font-weight: bold;
+    text-align: left;
+    color: var(--brand-primary);
+  }
+}
+
+@media (max-width: 480px) {
+  .students-container {
+    padding: 15px;
+  }
+  .students-container h2 {
+    font-size: 1.8em;
+  }
+  td:before {
+    width: 40%;
+    font-size: 0.9em;
+  }
+  td {
+    font-size: 0.9em;
+    padding: 10px 5%; /* Adjust padding for smaller screens */
+  }
+}

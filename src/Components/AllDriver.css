@@ -1,77 +1,234 @@
-.add-driver-form {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #f9f9f9;
+.all-drivers-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+  padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.add-driver-form .form-row {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
+.drivers-page-title {
+  color: #004d99;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  position: relative;
 }
 
-.add-driver-form input {
-  padding: 10px;
-  width: calc(33% - 20px);
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+.drivers-page-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #007bff;
+  margin: 10px auto 0;
+  border-radius: 2px;
 }
 
-.add-driver-form button {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
+.driver-form-card,
+.driver-table-card {
   border: none;
-  border-radius: 5px;
-  margin: 5px;
-  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
-.add-driver-form button[type="button"] {
-  background-color: #f44336;
+.driver-form-title,
+.driver-table-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #343a40;
+  margin-bottom: 25px;
+  position: relative;
 }
 
-.drivers-button {
-  padding: 10px 20px;
-  margin-left: 10px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
+.driver-form-title::after,
+.driver-table-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #28a745;
+  margin: 8px auto 0;
+  border-radius: 1.5px;
 }
 
-.update-button {
-  padding: 5px 10px;
-  background-color: #4caf50;
+.form-label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.form-control {
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  padding: 0.7rem 1rem;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.add-driver-toggle-btn,
+.clear-form-btn,
+.form-submit-btn,
+.form-cancel-btn {
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  min-width: 140px;
+}
+
+.add-driver-toggle-btn,
+.form-submit-btn {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.add-driver-toggle-btn:hover,
+.form-submit-btn:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.clear-form-btn,
+.form-cancel-btn {
+  background-color: #6c757d;
+  border-color: #6c757d;
   color: white;
 }
 
-.delete-button {
-  padding: 5px 10px;
-  background-color: #f44336;
-  color: white;
+.clear-form-btn:hover,
+.form-cancel-btn:hover {
+  background-color: #5a6268;
+  border-color: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
 }
 
 .drivers-table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 20px;
 }
 
-.table-header, .table-cell {
-  padding: 12px;
+.drivers-table th,
+.drivers-table td {
+  padding: 12px 15px;
   text-align: left;
-  border: 1px solid #ddd;
+  vertical-align: middle;
+  border-top: 1px solid #e9ecef;
 }
 
-.table-header {
-  background-color: #f1f1f1;
-  font-weight: bold;
+.drivers-table thead th {
+  background-color: #e2eafc;
+  color: #343a40;
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
-.table-cell {
-  background-color: #fff;
+.drivers-table tbody tr:hover {
+  background-color: #f1f7fe;
+}
+
+.drivers-table tbody tr:nth-child(even) {
+  background-color: #fdfdfe;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.edit-btn {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #138496;
+  border-color: #117a8b;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .drivers-page-title {
+    font-size: 2.2rem;
+  }
+  .driver-form-title, .driver-table-title {
+    font-size: 1.6rem;
+  }
+  .add-driver-toggle-btn, .clear-form-btn, .form-submit-btn, .form-cancel-btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .all-drivers-container {
+    padding: 15px;
+  }
+  .drivers-page-title {
+    font-size: 2rem;
+  }
+  .driver-form-card, .driver-table-card {
+    padding: 15px;
+  }
+  .driver-form-title, .driver-table-title {
+    font-size: 1.4rem;
+  }
+  .d-flex.justify-content-end.mb-4 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px !important;
+  }
+  .add-driver-toggle-btn, .clear-form-btn {
+    width: 100%;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .d-flex.justify-content-center.gap-3 {
+    flex-direction: column;
+    gap: 10px !important;
+  }
+  .form-submit-btn, .form-cancel-btn {
+    width: 100%;
+  }
+  .drivers-table th, .drivers-table td {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+  .action-btn {
+    padding: 5px 8px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .drivers-page-title {
+    font-size: 1.8rem;
+  }
+  .driver-form-title, .driver-table-title {
+    font-size: 1.2rem;
+  }
 }

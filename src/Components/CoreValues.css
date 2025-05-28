@@ -1,39 +1,166 @@
+/* Global Box-sizing for consistency */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Define CSS Custom Properties (Variables) */
+:root {
+  --primary-color: #0056b3; /* Deep blue */
+  --secondary-bg-color: #f8f9fa; /* Light background for sections */
+  --text-color: #333;
+  --light-text-color: #6c757d;
+  --border-color: #dee2e6;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transition-speed: 0.3s ease;
+  --section-padding: 60px;
+}
+
 .core-values-container {
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
-  }
-  
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #fff;
+  padding: var(--section-padding) 20px;
+  max-width: 1200px;
+  margin: 40px auto; /* Center the container with some margin */
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  text-align: center; /* Center text by default */
+}
+
+.core-values-title {
+  color: var(--primary-color);
+  font-size: 3em;
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.core-values-intro,
+.core-values-outro {
+  max-width: 900px;
+  margin: 0 auto 40px auto; /* Margin bottom for intro */
+  font-size: 1.15em;
+  color: var(--light-text-color);
+  padding: 0 15px;
+  line-height: 1.8;
+}
+
+.core-values-outro {
+    margin-top: 40px; /* Margin top for outro */
+    margin-bottom: 0; /* No margin at the very bottom */
+}
+
+.core-values-image {
+  max-width: 100%; /* Ensure image is responsive */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 40px; /* Space below the image */
+  display: block; /* Remove extra space below image */
+  margin-left: auto; /* Center image */
+  margin-right: auto; /* Center image */
+}
+
+.core-values-content {
+  display: flex; /* Use Flexbox for the value items */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Center items horizontally */
+  gap: 25px; /* Space between value items */
+  padding: 20px 0;
+}
+
+.core-value-item {
+  background-color: var(--secondary-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 30px;
+  flex: 1 1 300px; /* Flex shorthand: grow, shrink, basis */
+  /* This allows items to be at least 300px wide and wrap, taking up available space */
+  max-width: calc(33.33% - 25px); /* Allows 3 items per row, accounting for gap */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  text-align: left; /* Align text left within each item */
+}
+
+.core-value-item:hover {
+  transform: translateY(-8px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Stronger shadow on hover */
+}
+
+.core-value-item h3 {
+  color: var(--primary-color);
+  font-size: 1.6em;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.core-value-item p {
+  font-size: 1em;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
   .core-values-title {
-    text-align: center;
-    color: #2c3e50;
-    font-size: 32px;
+    font-size: 2.5em;
+  }
+  .core-values-intro,
+  .core-values-outro {
+    font-size: 1.05em;
     margin-bottom: 30px;
   }
-  
-  .core-values-image {
-    display: block;
-    margin: 0 auto 30px auto;
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
-  
   .core-values-content {
-    margin-top: 20px;
-    line-height: 1.8;
-    color: #34495e;
+    gap: 20px;
   }
-  
-  .core-values-subtitle {
-    color: #16a085;
-    margin-top: 20px;
-    font-size: 22px;
+  .core-value-item {
+    flex: 1 1 45%; /* Two items per row */
+    max-width: calc(50% - 20px); /* Adjust for 2 items per row with gap */
+    padding: 25px;
   }
-  
-  .core-values-paragraph {
-    margin-top: 10px;
-    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .core-values-container {
+    padding: var(--section-padding) 15px;
+    margin: 20px auto;
   }
-  
+  .core-values-title {
+    font-size: 2em;
+  }
+  .core-values-intro,
+  .core-values-outro {
+    font-size: 1em;
+    margin-bottom: 25px;
+  }
+  .core-values-content {
+    gap: 15px;
+  }
+  .core-value-item {
+    flex: 1 1 100%; /* One item per row */
+    max-width: 100%;
+    padding: 20px;
+    text-align: center; /* Center text for single column */
+  }
+  .core-value-item h3 {
+      font-size: 1.4em;
+  }
+  .core-value-item p {
+      font-size: 0.95em;
+  }
+}
+
+@media (max-width: 480px) {
+  .core-values-container {
+    padding: 30px 10px;
+  }
+  .core-values-title {
+    font-size: 1.8em;
+  }
+  .core-values-intro,
+  .core-values-outro {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
+}

@@ -24,11 +24,11 @@ const CoursesOffered = () => {
   }, []);
 
   if (loading) {
-    return <h3>Loading courses...</h3>;
+    return <h3 className="loading-message">Loading courses...</h3>;
   }
 
   if (error) {
-    return <h3>{error}</h3>;
+    return <h3 className="error-message">{error}</h3>;
   }
 
   return (
@@ -38,18 +38,17 @@ const CoursesOffered = () => {
         <thead>
           <tr>
             <th>SNO</th>
-            
             <th>Course Name</th>
-            <th>Duration (Months)</th>
+            <th>Duration (YEARS)</th>
           </tr>
         </thead>
         <tbody>
           {courses.map((course, index) => (
             <tr key={course.id}>
-            
-              <td>{course.id}</td>
-              <td>{course.name}</td>
-              <td>{course.duration}</td>
+              {/* Using index + 1 for SNO to ensure sequential numbering */}
+              <td data-label="SNO">{index + 1}</td> 
+              <td data-label="Course Name">{course.name}</td>
+              <td data-label="Duration (Months)">{course.duration}</td>
             </tr>
           ))}
         </tbody>

@@ -1,21 +1,176 @@
+/* Global Box-sizing for consistency */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Define CSS Custom Properties (Variables) */
+:root {
+  --primary-color: #0056b3; /* Deep blue for accents */
+  --secondary-bg-color: #f0f4f8; /* Light background for the container */
+  --card-bg-color: #ffffff; /* White background for table/cards */
+  --text-color: #333;
+  --light-text-color: #6c757d;
+  --border-color: #e0e6ed;
+  --header-bg: #e9ecef; /* Light gray for table headers */
+  --row-hover-bg: #f5f5f5;
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --transition-speed: 0.3s ease;
+  --section-padding: 50px;
+}
+
 .courses-container {
-    margin: 20px;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--secondary-bg-color);
+  padding: var(--section-padding) 20px;
+  max-width: 1000px;
+  margin: 40px auto; /* Center the container with some margin */
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+.courses-container h3 {
+  color: var(--primary-color);
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+.courses-table {
+  width: 100%;
+  border-collapse: collapse; /* Collapse table borders */
+  margin: 0 auto;
+  background-color: var(--card-bg-color);
+  border-radius: 10px;
+  overflow: hidden; /* Ensures border-radius applies to table content */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for the table */
+}
+
+.courses-table th,
+.courses-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color); /* Light border between rows */
+}
+
+.courses-table th {
+  background-color: var(--header-bg);
+  color: var(--primary-color);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.95em;
+  letter-spacing: 0.5px;
+}
+
+/* Style for table rows */
+.courses-table tbody tr {
+  transition: background-color var(--transition-speed);
+}
+
+.courses-table tbody tr:nth-child(even) {
+  background-color: #fdfdfd; /* Slightly different background for even rows */
+}
+
+.courses-table tbody tr:hover {
+  background-color: var(--row-hover-bg); /* Highlight row on hover */
+  transform: scale(1.005); /* Subtle scale effect */
+}
+
+.courses-table td {
+  font-size: 1em;
+  color: var(--text-color);
+}
+
+/* Specific styling for SNO (ID) column */
+.courses-table td:first-child {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+/* Error and Loading States */
+.courses-container h3 { /* Reusing the heading style for consistency */
+  text-align: center;
+  margin-top: 50px;
+  color: var(--primary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .courses-container {
+    padding: var(--section-padding) 15px;
+    margin: 20px auto;
   }
-  
-  .courses-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+
+  .courses-container h3 {
+    font-size: 2em;
+    margin-bottom: 25px;
   }
-  
-  .courses-table th,
+
+  .courses-table, .courses-table thead, .courses-table tbody, .courses-table th, .courses-table td, .courses-table tr {
+    display: block; /* Make table elements behave like block elements */
+  }
+
+  .courses-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px; /* Hide table headers */
+  }
+
+  .courses-table tr {
+    border: 1px solid var(--border-color);
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
   .courses-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: none; /* Remove individual cell borders */
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    padding-left: 50%; /* Make space for the pseudo-element label */
+    text-align: right;
+  }
+
+  .courses-table td:last-child {
+    border-bottom: none; /* No border for the last td */
+  }
+
+  /* Add labels to table cells using data attributes and pseudo-elements */
+  .courses-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
     text-align: left;
+    font-weight: bold;
+    color: var(--primary-color);
   }
-  
-  .courses-table th {
-    background-color: #f2f2f2;
+
+  /* Specific data-labels for each column */
+  .courses-table tr td:nth-of-type(1)::before { content: "SNO:"; }
+  .courses-table tr td:nth-of-type(2)::before { content: "Course Name:"; }
+  .courses-table tr td:nth-of-type(3)::before { content: "Duration (Months):"; }
+}
+
+@media (max-width: 480px) {
+  .courses-container {
+    padding: 30px 10px;
   }
-  
+  .courses-container h3 {
+    font-size: 1.8em;
+  }
+  .courses-table td {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+  .courses-table td::before {
+    font-size: 0.85em;
+    width: 40%;
+  }
+}

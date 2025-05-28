@@ -1,62 +1,230 @@
-.recruitments-container {
-  max-width: 960px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
+/* Recruitments.css */
+
+/* --- Modern Color Palette & Design Variables --- */
+:root {
+  /* Primary Brand Colors */
+  --brand-primary: #0056b3;     /* Deep Blue for main actions/headings */
+  --brand-secondary: #007bff;   /* Brighter Blue for links, subtle accents */
+  --brand-accent: #28a745;      /* Green for success/positive feedback */
+  --brand-danger: #dc3545;      /* Red for errors/alerts */
+
+  /* Text Colors */
+  --text-dark: #2c3e50;        /* Very dark grey-blue for primary text */
+  --text-medium: #5a6a7a;      /* Medium grey for secondary text, labels */
+  --text-light: #90a4ae;       /* Light grey for hints, disabled states */
+  --text-white: #ffffff;       /* Pure white for text on dark backgrounds */
+
+  /* Background Colors */
+  --bg-page: #f8f9fa;         /* Very light grey for the overall page background */
+  --bg-card: #ffffff;         /* White for prominent cards/forms */
+
+  /* Border Colors */
+  --border-light: #e6e9ee;     /* Very light grey for subtle borders */
+  --border-medium: #ced4da;    /* Standard grey for input borders */
+
+  /* Shadows */
+  --shadow-xs: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px; /* Extra small shadow */
+  --shadow-sm: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; /* Small shadow */
+  --shadow-md: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; /* Medium shadow */
+
+  /* Transitions */
+  --transition-fast: all 0.15s ease-out;
+  --transition-medium: all 0.3s ease-out;
+
+  /* Border Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Font Family */
+  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+/* Global body styles for context (optional, if not in index.css) */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-dark);
   line-height: 1.6;
 }
 
-.recruitments-container h2 {
-  text-align: center;
-  color: #2c3e50;
-  font-size: 28px;
-  margin-bottom: 25px;
+.recruitments-container {
+  max-width: 900px; /* Adjust max-width for better readability of longer text */
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
-.recruitments-container h3 {
-  color: #1e90ff;
-  font-size: 22px;
-  margin-top: 30px;
-  margin-bottom: 15px;
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: 2.8em; /* Slightly larger for main heading */
+  color: var(--brand-primary);
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.intro-paragraph,
+.highlight-paragraph {
+  font-size: 1.15em; /* Slightly larger font for intro text */
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin-bottom: 25px;
+  text-align: justify; /* Justify for a more professional look */
+}
+
+.highlight-paragraph strong {
+  color: var(--brand-primary);
+  font-weight: 600;
+}
+
+.sub-heading {
+  font-family: var(--font-heading);
+  font-size: 1.8em;
+  color: var(--brand-primary);
+  margin-top: 40px; /* More space above sub-headings */
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 2px solid var(--border-light); /* Underline effect */
+  padding-bottom: 8px;
 }
 
 .recruitments-container p {
-  margin-bottom: 20px;
-  font-size: 16px;
+  font-size: 1em;
+  color: var(--text-medium);
+  line-height: 1.7;
+  margin-bottom: 15px;
+  text-align: justify;
 }
 
 .recruitments-container ul {
-  list-style: none;
-  padding-left: 0;
+  list-style: disc; /* Default disc bullet points */
+  padding-left: 25px; /* Indent list items */
+  margin-bottom: 25px;
 }
 
-.recruitments-container ul li {
-  background-color: #f4f8fc;
-  border-left: 4px solid #1e90ff;
-  padding: 10px 15px;
+.recruitments-container li {
+  font-size: 1em;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+/* Specific styling for the placement trends list for visual distinction */
+.placement-trends-list {
+  list-style: none; /* Remove default bullets */
+  padding-left: 0;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.placement-trends-list li {
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 12px 20px;
   margin-bottom: 10px;
-  border-radius: 6px;
-  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  color: var(--text-dark);
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.placement-trends-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.placement-trends-list li strong {
+  color: var(--brand-primary);
+  font-weight: 700;
+}
+
+.disclaimer-text {
+  font-size: 0.9em;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+  .recruitments-container {
+    padding: 25px;
+    margin: 30px auto;
+  }
+  .section-heading {
+    font-size: 2.4em;
+    margin-bottom: 25px;
+  }
+  .sub-heading {
+    font-size: 1.6em;
+    margin-top: 35px;
+  }
+  .intro-paragraph,
+  .highlight-paragraph {
+    font-size: 1.1em;
+  }
 }
 
 @media (max-width: 768px) {
   .recruitments-container {
     padding: 20px;
+    margin: 20px auto;
   }
-
-  .recruitments-container h2 {
-    font-size: 24px;
+  .section-heading {
+    font-size: 2em;
+    margin-bottom: 20px;
   }
-
-  .recruitments-container h3 {
-    font-size: 20px;
+  .sub-heading {
+    font-size: 1.4em;
+    margin-top: 30px;
   }
+  .intro-paragraph,
+  .highlight-paragraph,
+  .recruitments-container p,
+  .recruitments-container li {
+    font-size: 0.95em;
+    line-height: 1.6;
+  }
+  .placement-trends-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+  }
+}
 
-  .recruitments-container ul li {
-    font-size: 14px;
+@media (max-width: 480px) {
+  .recruitments-container {
+    padding: 15px;
+    margin: 15px auto;
+  }
+  .section-heading {
+    font-size: 1.8em;
+    letter-spacing: 0.5px;
+  }
+  .sub-heading {
+    font-size: 1.2em;
+    margin-top: 25px;
+  }
+  .intro-paragraph,
+  .highlight-paragraph,
+  .recruitments-container p,
+  .recruitments-container li {
+    font-size: 0.88em;
+  }
+  .placement-trends-list li {
+    padding: 8px 12px;
   }
 }

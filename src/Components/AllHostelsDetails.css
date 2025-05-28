@@ -1,0 +1,69 @@
+.hostels-container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+.hostels-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.loading-message,
+.error-message,
+.no-data-message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.error-message {
+    color: #d9534f; /* Bootstrap's danger red */
+}
+
+.loading-message {
+    color: #5bc0de; /* Bootstrap's info blue */
+}
+
+.no-data-message {
+    color: #777;
+}
+
+.hostels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.hostel-card {
+    border: 1px solid #ddd; /* Lighter border */
+    border-radius: 8px;
+    padding: 20px; /* Slightly more padding */
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08); /* More pronounced shadow */
+    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.hostel-card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+}
+
+.hostel-card h3 {
+    color: #0056b3; /* Darker blue for names */
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.hostel-card p {
+    margin-bottom: 8px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.hostel-card p strong {
+    color: #333;
+}

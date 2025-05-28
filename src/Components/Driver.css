@@ -1,81 +1,190 @@
-.edits-staff-container {
-    margin: 0 auto;
+/* Global Box-sizing for consistency */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* CSS Custom Properties (Variables) */
+:root {
+  --primary-color: #0056b3; /* Deep blue for accents */
+  --secondary-bg-color: #f8f9fa; /* Light background for the page */
+  --form-bg-color: #ffffff; /* White background for the form itself */
+  --text-color: #333;
+  --label-color: #555;
+  --input-border-color: #e0e6ed;
+  --input-focus-border: #007bff;
+  --button-submit: #28a745; /* Green for submit */
+  --button-submit-hover: #218838;
+  --button-clear: #6c757d; /* Grey for clear/cancel */
+  --button-clear-hover: #5a6268;
+  --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --transition-speed: 0.3s ease;
+  --section-padding: 40px;
+}
+
+.driver-form-container {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--secondary-bg-color);
+  padding: var(--section-padding) 20px;
+  max-width: 900px; /* Adjusted max-width for the form */
+  margin: 40px auto;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-light);
+}
+
+.driver-form-container h2 {
+  color: var(--primary-color);
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+/* Form Styling */
+.driver-form {
+  background-color: var(--form-bg-color);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow-light);
+  border: 1px solid var(--input-border-color);
+}
+
+.driver-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid for inputs */
+  gap: 20px;
+  margin-bottom: 20px; /* Space between grid rows */
+}
+
+.driver-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.driver-form-label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--label-color);
+  font-size: 0.95em;
+}
+
+.driver-form-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 1em;
+  color: var(--text-color);
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.driver-form-input:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+/* Form Buttons */
+.driver-form-buttons {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 15px;
+  margin-top: 30px; /* Space above buttons */
+}
+
+.driver-submit-button,
+.driver-clear-button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.05em;
+  font-weight: 600;
+  transition: background-color var(--transition-speed), transform 0.2s ease;
+}
+
+.driver-submit-button {
+  background-color: var(--button-submit);
+  color: white;
+}
+
+.driver-submit-button:hover {
+  background-color: var(--button-submit-hover);
+  transform: translateY(-2px);
+}
+
+.driver-clear-button {
+  background-color: var(--button-clear);
+  color: white;
+}
+
+.driver-clear-button:hover {
+  background-color: var(--button-clear-hover);
+  transform: translateY(-2px);
+}
+
+/* Success/Error Message */
+.form-message {
+  padding: 10px 15px;
+  margin-top: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.form-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .driver-form-container {
+    padding: var(--section-padding) 15px;
+    margin: 20px auto;
+  }
+  .driver-form-container h2 {
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+  .driver-form {
     padding: 20px;
-    max-width: 900px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
-  
-  .edits-staff-heading {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    font-size: 24px;
+  .driver-form-grid {
+    grid-template-columns: 1fr; /* Stack inputs vertically */
   }
-  
-  .edits-staff-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 20px;
+  .driver-form-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px;
   }
-  
-  .edits-staff-form-group {
-    display: flex;
-    flex-direction: column;
+  .driver-submit-button,
+  .driver-clear-button {
+    width: 100%; /* Full width buttons */
+    padding: 10px 20px;
   }
-  
-  .edits-staff-label {
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #555;
+}
+
+@media (max-width: 480px) {
+  .driver-form-container {
+    padding: 30px 10px;
   }
-  
-  .edits-staff-input {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+  .driver-form-container h2 {
+    font-size: 1.8em;
   }
-  
-  .edits-staff-input:focus {
-    border-color: #007bff;
-    outline: none;
+  .driver-form-label {
+    font-size: 0.9em;
   }
-  
-  .edits-staff-buttons {
-    display: flex;
-    justify-content: space-between;
+  .driver-form-input {
+    padding: 10px 12px;
+    font-size: 0.9em;
   }
-  
-  .edits-staff-button,
-  .edits-staff-clear-button {
-    width: 48%;
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .edits-staff-button {
-    background-color: #4caf50;
-    color: white;
-  }
-  
-  .edits-staff-button:hover {
-    background-color: #45a049;
-  }
-  
-  .edits-staff-clear-button {
-    background-color: #f44336;
-    color: white;
-  }
-  
-  .edits-staff-clear-button:hover {
-    background-color: #d32f2f;
-  }
-  
+}

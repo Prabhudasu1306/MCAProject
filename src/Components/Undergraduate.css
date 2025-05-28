@@ -1,0 +1,232 @@
+/* CoursesOffered.css */
+
+/* --- Modern Color Palette & Design Variables --- */
+:root {
+  /* Primary Brand Colors */
+  --brand-primary: #0056b3;     /* Deep Blue for main actions/headings */
+  --brand-secondary: #007bff;   /* Brighter Blue for links, subtle accents */
+  --brand-accent: #28a745;      /* Green for success/positive feedback */
+  --brand-danger: #dc3545;      /* Red for errors/alerts */
+
+  /* Text Colors */
+  --text-dark: #2c3e50;        /* Very dark grey-blue for primary text */
+  --text-medium: #5a6a7a;      /* Medium grey for secondary text, labels */
+  --text-light: #90a4ae;       /* Light grey for hints, disabled states */
+  --text-white: #ffffff;       /* Pure white for text on dark backgrounds */
+
+  /* Background Colors */
+  --bg-page: #f8f9fa;         /* Very light grey for the overall page background */
+  --bg-card: #ffffff;         /* White for prominent cards/forms */
+  --bg-table-header: #e9ecef; /* Light grey for table headers */
+
+  /* Border Colors */
+  --border-light: #e6e9ee;     /* Very light grey for subtle borders */
+  --border-medium: #ced4da;    /* Standard grey for input borders */
+
+  /* Shadows */
+  --shadow-xs: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px; /* Extra small shadow */
+  --shadow-sm: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; /* Small shadow */
+  --shadow-md: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; /* Medium shadow */
+
+  /* Transitions */
+  --transition-fast: all 0.15s ease-out;
+  --transition-medium: all 0.3s ease-out;
+
+  /* Border Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Font Family */
+  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+/* Global body styles for context (optional, if not in index.css) */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+
+.courses-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.courses-container h3 {
+  font-family: var(--font-heading);
+  font-size: 2.5em;
+  color: var(--brand-primary);
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 3px solid var(--brand-secondary);
+  padding-bottom: 10px;
+  display: inline-block; /* Makes border only as wide as text */
+}
+
+.courses-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: var(--shadow-xs); /* Subtle shadow for the table */
+  border-radius: var(--radius-md); /* Rounded corners for the table */
+  overflow: hidden; /* Ensures rounded corners apply to content */
+}
+
+.courses-table th,
+.courses-table td {
+  padding: 15px;
+  border: 1px solid var(--border-light);
+  text-align: left;
+  font-size: 0.95em;
+  color: var(--text-dark);
+}
+
+.courses-table th {
+  background-color: var(--bg-table-header);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.courses-table tbody tr:nth-child(even) {
+  background-color: #f6f6f6; /* Subtle stripe for readability */
+}
+
+.courses-table tbody tr:hover {
+  background-color: #eef4f9; /* Light hover effect */
+  transition: background-color var(--transition-fast);
+}
+
+.courses-table td {
+  vertical-align: middle; /* Align content in middle of cell */
+}
+
+.courses-table td:last-child {
+  text-align: center; /* Center buttons in the last column */
+}
+
+.eligibility-link,
+.register-link {
+  padding: 8px 15px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.85em;
+  font-weight: 600;
+  transition: var(--transition-fast);
+  margin: 0 5px; /* Space between buttons */
+  text-decoration: none; /* For link-like buttons */
+  display: inline-block; /* Ensure padding and margin work */
+}
+
+.eligibility-link {
+  background-color: var(--brand-secondary);
+  color: var(--text-white);
+}
+
+.eligibility-link:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-xs);
+}
+
+.register-link {
+  background-color: var(--brand-accent); /* Green for register */
+  color: var(--text-white);
+}
+
+.register-link:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-xs);
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .courses-container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .courses-container h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+
+  .courses-table, .courses-table thead, .courses-table tbody, .courses-table th, .courses-table td, .courses-table tr {
+    display: block; /* Make table elements act as blocks for stacking */
+  }
+
+  .courses-table thead tr {
+    position: absolute;
+    top: -9999px; /* Hide table headers visually */
+    left: -9999px;
+  }
+
+  .courses-table tr {
+    border: 1px solid var(--border-light);
+    margin-bottom: 15px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xs);
+  }
+
+  .courses-table td {
+    border: none; /* Remove individual cell borders */
+    border-bottom: 1px solid var(--border-light);
+    position: relative;
+    padding-left: 50%; /* Space for pseudo-element labels */
+    text-align: right;
+  }
+
+  .courses-table td:last-child {
+    border-bottom: none; /* No border for the last cell */
+  }
+
+  /* Add pseudo-elements to display header text as labels */
+  .courses-table td:before {
+    content: attr(data-label); /* Use data-label attribute for content */
+    position: absolute;
+    left: 15px;
+    width: calc(50% - 30px); /* Adjust width */
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-align: left;
+  }
+
+  /* Specific labels for each column */
+  .courses-table tbody tr td:nth-of-type(1):before { content: "SNO"; }
+  .courses-table tbody tr td:nth-of-type(2):before { content: "Course Name"; }
+  .courses-table tbody tr td:nth-of-type(3):before { content: "Duration (Months)"; }
+  .courses-table tbody tr td:nth-of-type(4):before { content: "Actions"; }
+
+  .eligibility-link,
+  .register-link {
+    display: block; /* Stack buttons vertically on mobile */
+    margin: 10px auto; /* Center and add spacing */
+    width: calc(100% - 20px); /* Full width with padding */
+    max-width: 200px; /* Limit max width */
+  }
+}
+
+@media (max-width: 480px) {
+  .courses-container h3 {
+    font-size: 1.8em;
+  }
+}

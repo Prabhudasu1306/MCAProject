@@ -1,36 +1,180 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+/* Global Box-sizing for consistency */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* CSS Custom Properties (Variables) */
+:root {
+  --primary-color: #0056b3; /* Deep blue for titles/accents */
+  --secondary-bg-color: #f8f9fa; /* Light background for the page */
+  --card-bg-color: #ffffff; /* White background for profile cards */
+  --text-color: #333;
+  --light-text-color: #6c757d;
+  --border-color: #e0e6ed;
+  --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --transition-speed: 0.3s ease;
+  --section-padding: 50px;
+}
 
 .founder-container {
-  background: linear-gradient(to right, #f9f9f9, #f0f0f0);
-  padding: 3rem 2rem;
-  border-radius: 20px;
-  max-width: 900px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.7;
+  color: var(--text-color);
+  background-color: var(--secondary-bg-color);
+  padding: var(--section-padding) 20px;
+  max-width: 1200px; /* Max width for the main content area */
   margin: 40px auto;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-light);
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Space between sections */
+}
+
+.founder-title {
+  color: var(--primary-color);
+  font-size: 3em;
+  margin-bottom: 20px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.founder-profile {
+  display: flex;
+  flex-direction: row; /* Default for larger screens */
+  align-items: center;
+  background-color: var(--card-bg-color);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  border: 1px solid var(--border-color);
+}
+
+.founder-profile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Alternate layout for every second profile (optional, for unique look) */
+.founder-profile:nth-child(even) {
+  flex-direction: row-reverse; /* Image on the right */
 }
 
 .founder-image {
-  width: 220px;
-  border-radius: 20px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  width: 280px; /* Fixed width for images */
+  height: 280px; /* Fixed height for images */
+  min-width: 200px; /* Ensure image doesn't get too small on flex shrinking */
+  object-fit: cover; /* Covers the area, crops if necessary */
+  border-radius: 50%; /* Circular images */
+  border: 5px solid var(--primary-color); /* Primary color border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  margin: 0 40px; /* Space between image and text */
+}
+
+/* Adjust margin for reversed layout */
+.founder-profile:nth-child(even) .founder-image {
+  margin: 0 0 0 40px;
+}
+
+.founder-text {
+  flex: 1; /* Allows text to take remaining space */
 }
 
 .founder-name {
-  font-size: 28px;
-  font-weight: 700;
-  color: #c0392b;
-  margin-bottom: 1rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  font-size: 2.2em;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
-.founder-description {
-  font-size: 16px;
+.founder-subheading {
+  font-size: 1.8em;
+  color: var(--text-color);
+  margin-bottom: 15px;
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 5px;
+  display: inline-block; /* Makes border only as wide as text */
+}
+
+.founder-text p {
+  font-size: 1.1em;
+  color: var(--light-text-color);
   line-height: 1.8;
-  color: #2c3e50;
-  text-align: justify;
-  margin-bottom: 1rem;
-  padding: 0 10px;
+}
+
+.founder-text p strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.founder-text p i {
+  font-style: italic;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .founder-container {
+    padding: var(--section-padding) 15px;
+    margin: 20px auto;
+  }
+  .founder-title {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+  }
+  .founder-profile {
+    flex-direction: column; /* Stack image and text vertically */
+    text-align: center;
+    padding: 25px;
+  }
+  .founder-profile:nth-child(even) {
+    flex-direction: column; /* Ensure stacked order for all */
+  }
+  .founder-image {
+    width: 200px;
+    height: 200px;
+    margin: 0 0 25px 0; /* Adjust margin for vertical stacking */
+  }
+  .founder-profile:nth-child(even) .founder-image {
+    margin: 0 0 25px 0; /* Consistent margin for all stacked images */
+  }
+  .founder-name {
+    font-size: 1.8em;
+  }
+  .founder-subheading {
+    font-size: 1.5em;
+  }
+  .founder-text p {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 576px) {
+  .founder-container {
+    padding: 30px 10px;
+    gap: 30px;
+  }
+  .founder-title {
+    font-size: 2em;
+  }
+  .founder-profile {
+    padding: 20px;
+  }
+  .founder-image {
+    width: 160px;
+    height: 160px;
+    border-width: 3px; /* Thinner border for smaller images */
+  }
+  .founder-name {
+    font-size: 1.6em;
+  }
+  .founder-subheading {
+    font-size: 1.3em;
+  }
+  .founder-text p {
+    font-size: 0.95em;
+  }
 }
